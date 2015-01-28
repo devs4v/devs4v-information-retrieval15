@@ -8,25 +8,24 @@
 #include <archive_entry.h>
 #include <cstdarg>
 #include <cstdlib>
+#define d true
 
 using namespace std;
 
 
 static void
-die(char *fmt, ...)
-{
-	va_list ap;
-
-	va_start(ap, fmt);
-	vfprintf(stderr, fmt, ap);
-	va_end(ap);
-	fprintf(stderr, "\n");
+die(string error){
+	cerr<<"\n"<<error;
 	exit(1);
 }
 
 int
 main(int argc, char **argv)
 {
+	string this_filename = "readtar";
+	if (argc < 2){
+		die("Insufficient Params!\nUsage: " + this_filename + " <tarball>");
+	}
 	char buff[8192];
 	ssize_t len;
 	int r;
@@ -36,6 +35,7 @@ main(int argc, char **argv)
 	struct archive_entry *entry;
 
 	/* Read an archive from stdin, with automatic format detection. */
+	// if(d)cerr<<"Opening archive";
 	ina = archive_read_new();
 	if (ina == NULL)
 		die("Couldn't create archive reader.");
@@ -43,10 +43,17 @@ main(int argc, char **argv)
 		die("Couldn't enable decompression");
 	if (archive_read_support_format_all(ina) != ARCHIVE_OK)
 		die("Couldn't enable read formats");
-	if (archive_read_open_fd(ina, 0, 10240) != ARCHIVE_OK)
-		die("Couldn't open input archive");
+	// if (archive_read_open_fd(ina, 0, 8192) != ARCHIVE_OK)
+	// 	die("Couldn't open input archive");
 
-	/* Write an uncompressed ustar archive to stdout. */
+	// if(d)cerr<<"Opening file";	
+	r = archive_read_open_filename(ina, argv[1], 8192);
+	if(r != ARCHIVE_OK){
+		die("\nArchive seems to be damaged! Exiting.");
+	}
+
+
+	 // Write an uncompressed ustar archive to stdout. 
 	outa = archive_write_new();
 	if (outa == NULL)
 		die("Couldn't create archive writer.");

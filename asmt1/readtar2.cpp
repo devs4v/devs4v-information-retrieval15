@@ -11,7 +11,7 @@
 
 #include <regex>
 #include <iterator>
-
+#include <map>
 using namespace std;
 
 
@@ -25,6 +25,7 @@ die(string error){
 
 string parse_and_return_text(string);
 map<string, int> tokenize(string);
+vector<string> split(string s, string delim);
 
 int main (int argc, const char * argv[]) 
 {
@@ -72,16 +73,45 @@ int main (int argc, const char * argv[])
 }
 
 map<string, int> tokenize(string no_tag_doc){
+	map<string, int> token_map;
+	vector<string> v = split(no_tag_doc, " ");
+	for (vector<string>::iterator i = v.begin(); i != v.end(); ++i){
+		cout<<"\""<<*i<<"\",";
+	}
+	return token_map;
+	
+}
 
+vector<string> split(string s, string delim){
+	vector<string> res;
+	
+	if(delim.empty()){
+		// vector<string> res;
+		res.push_back(s);
+		return res;
+	}
+	size_t pos = 0;
+	string token;
+	while ((pos = s.find(delim)) != string::npos) {
+    	token = s.substr(0, pos);
+    	if(!token.empty()){
+    		res.push_back(token);
+    	}
+    	// std::cout << token << std::endl;
+    	s.erase(0, pos + delim.length());
+	}
+	return res;
 }
 
 string parse_and_return_text(string doc){
-	string blankie = "";
+	string blankie = " ";
+	string result;
 	regex no_tag_regex("<.*>");
+	regex no_linefeed_tabs("[(\\n)|(\\t)]");
+	regex no_special_chars("[(\\/)|(:)|(;)|(\\)|(-)]");
 
-	// string result;
-	// result = regex_replace(doc, no_tag_regex, blankie);
-	// regex_replace(back_inserter(result), doc.begin(), doc.end(), no_tag_regex, blankie);
-	return regex_replace(doc, no_tag_regex, blankie);
+	result = regex_replace(doc, no_tag_regex, blankie);
+	result = regex_replace(result, no_linefeed_tabs, blankie);
+	result = regex_replace(result, no_special_chars, blankie);
+	return result;
 }
-

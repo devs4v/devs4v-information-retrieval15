@@ -12,8 +12,11 @@
 #include <regex>
 #include <iterator>
 #include <map>
-using namespace std;
+#include <cstdint>
+#include "timing.h"
 
+using namespace std;
+#define d true
 
 
 
@@ -29,6 +32,7 @@ vector<string> split(string s, string delim);
 
 int main (int argc, const char * argv[]) 
 {
+    uint64_t starttime = GetTimeMs64();
     struct archive *a;
     struct archive_entry *entry;
     int r;
@@ -44,7 +48,7 @@ int main (int argc, const char * argv[])
     else 
     {
     	int num_docs = 0;
-        while (archive_read_next_header(a, &entry) == ARCHIVE_OK && num_docs++ < 1) 
+        while (archive_read_next_header(a, &entry) == ARCHIVE_OK)// && num_docs++ < 20) 
         {
             const char *currentFile = archive_entry_pathname(entry);
             char *fileContents;
@@ -52,23 +56,25 @@ int main (int argc, const char * argv[])
             fileContents = (char *)malloc(entry_size+1); //alloc enough for string - from my testing I see that this is how many bytes tar and ls report from command line
             archive_read_data(a, fileContents, entry_size); //read data into fileContents string for the HTML file size
             fileContents[entry_size] = '\0';
-            printf("file name = %s, size = %ld\n", currentFile, entry_size);
+            if(d)printf("file name = %s, size = %ld\n", currentFile, entry_size);
             string doc = string(fileContents);
             // printf("%s\n\n", fileContents); //this output over-reads chars from another file in this tar file
             string no_tag_doc = parse_and_return_text(doc);
-            cout<<"\nDoc Starts: ==============\n";
-            cout<<no_tag_doc;
+            if(d)cout<<"\nDoc Starts: ==============\n";
+            if(d)cout<<no_tag_doc;
 
             map<string, int> word_map;
             word_map = tokenize(no_tag_doc);
 
 
-            cout<<"\nDoc Ends: ==============\n";
+            if(d)cout<<"\nDoc Ends: ==============\n";
                        
             free(fileContents); //free the C string because I malloc'd
         }
     }
-    printf("exit");
+    // printf("exit");
+    uint64_t endtime = GetTimeMs64();
+    cout<<"\n=======================\nExecution Time: "<<(endtime - starttime)<<" Microseconds\n=====================================\n";
     return 0;
 }
 
@@ -76,7 +82,8 @@ map<string, int> tokenize(string no_tag_doc){
 	map<string, int> token_map;
 	vector<string> v = split(no_tag_doc, " ");
 	for (vector<string>::iterator i = v.begin(); i != v.end(); ++i){
-		cout<<"\""<<*i<<"\",";
+		if(d)cout<<"\""<<*i<<"\",";
+		
 	}
 	return token_map;
 	

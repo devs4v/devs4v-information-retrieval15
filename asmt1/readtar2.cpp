@@ -24,6 +24,7 @@ die(string error){
 }
 
 string parse_and_return_text(string);
+map<string, int> tokenize(string);
 
 int main (int argc, const char * argv[]) 
 {
@@ -42,7 +43,7 @@ int main (int argc, const char * argv[])
     else 
     {
     	int num_docs = 0;
-        while (archive_read_next_header(a, &entry) == ARCHIVE_OK && num_docs++ < 20) 
+        while (archive_read_next_header(a, &entry) == ARCHIVE_OK && num_docs++ < 1) 
         {
             const char *currentFile = archive_entry_pathname(entry);
             char *fileContents;
@@ -56,6 +57,11 @@ int main (int argc, const char * argv[])
             string no_tag_doc = parse_and_return_text(doc);
             cout<<"\nDoc Starts: ==============\n";
             cout<<no_tag_doc;
+
+            map<string, int> word_map;
+            word_map = tokenize(no_tag_doc);
+
+
             cout<<"\nDoc Ends: ==============\n";
                        
             free(fileContents); //free the C string because I malloc'd
@@ -65,6 +71,9 @@ int main (int argc, const char * argv[])
     return 0;
 }
 
+map<string, int> tokenize(string no_tag_doc){
+
+}
 
 string parse_and_return_text(string doc){
 	string blankie = "";
@@ -76,59 +85,3 @@ string parse_and_return_text(string doc){
 	return regex_replace(doc, no_tag_regex, blankie);
 }
 
-
-int
-some(int argc, char **argv)
-{
-	string this_filename = "readtar";
-	if (argc < 2){
-		die("Insufficient Params!\nUsage: " + this_filename + " <tarball>");
-	}
-
-	char buff[8192];
-	// string document;
-	int64_t entry_size;
-	ssize_t len;
-	int r;
-	mode_t m;
-	struct archive *ina;
-	struct archive *outa;
-	struct archive_entry *entry;
-
-	ina = archive_read_new();
-	archive_read_support_filter_all(ina);
-	archive_read_support_format_all(ina);
-	r = archive_read_open_filename(ina, argv[1], 8192); // Note 1
-	if (r != ARCHIVE_OK)
-	  exit(1);
-
-
-	int document_count = 0;
-	int num_docs = 0;
-	char *document;
-	while (archive_read_next_header(ina, &entry) == ARCHIVE_OK && num_docs++ < 20) {
-	  printf("%s\n",archive_entry_pathname(entry));
-	  cout<<"entry_size is: "<<entry_size;
-	  		
-	  if (entry_size = archive_entry_size(entry) > 0) {
-	  		// cout<<"entry_size is: "<<entry_size;
-	  		// char *document;
-	  		document = (char *)malloc(entry_size+1);
-	  		// document = "Document #" + document_count++;
-			len = archive_read_data(ina, document, entry_size);
-			document[entry_size] = '\0';
-			cout<<document<<"\n";
-			if (len < 0)
-				die("Error reading input archive");
-			free(document);
-		}
-
-
-	}
-	r = archive_read_free(ina);  // Note 3
-	if (r != ARCHIVE_OK)
-  exit(1);
-
-
-	return (0);
-}

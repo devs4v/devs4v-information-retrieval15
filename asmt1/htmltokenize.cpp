@@ -64,8 +64,8 @@ int main (int argc, const char * argv[])
     }
     else 
     {
-    	int num_docs = 0;
-        while (archive_read_next_header(a, &entry) == ARCHIVE_OK && num_docs++ < 20) 
+    	// int num_docs = 0;
+        while (archive_read_next_header(a, &entry) == ARCHIVE_OK) 
         {
             const char *currentFile = archive_entry_pathname(entry);
             char *fileContents;

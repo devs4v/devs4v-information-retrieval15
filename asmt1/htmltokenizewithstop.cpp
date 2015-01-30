@@ -36,7 +36,7 @@ string parse_and_return_text(string);
 map<string, int> tokenize(string);
 vector<string> split(string s, string delim);
 vector<pair<string, int>> frequency_sorted_tokens(map<string, int>);
-// vector<string> read_stop_words_from_file(string);
+map<string, bool> read_stop_words_from_file(string);
 
 struct _sort_by_frequency{
     inline bool operator() (const pair<string, int>& a, const pair<string, int>& b){
@@ -53,6 +53,9 @@ struct _sort_by_lexicography{
 
 int main (int argc, const char * argv[]) 
 {
+    if(argc < 3){
+        die("Insufficient Params!\nUsage: ./htmltokenizewithstop.o <tarball> <stopwords.txt file>");
+    }
     uint64_t starttime = GetTimeMs64();
     struct archive *a;
     struct archive_entry *entry;
@@ -87,7 +90,7 @@ int main (int argc, const char * argv[])
             if(d)cout<<no_tag_doc;
 
             map<string, int> word_map;
-            word_map = tokenize(no_tag_doc);
+            word_map = tokenize(no_tag_doc, argv[2]);
 
             cout<<"\nTERM STATISTICS\n";
 
@@ -121,11 +124,15 @@ vector<pair<string, int>> frequency_sorted_tokens(map<string, int> word_map){
 }
 
 
-map<string, int> tokenize(string no_tag_doc){
+map<string, int> tokenize(string no_tag_doc, string stop_words_file){
 	map<string, int> token_map;
 	vector<string> v = split(no_tag_doc, " ");
-	for (vector<string>::iterator i = v.begin(); i != v.end(); ++i){
+	map<string, bool> stop_words_map = read_stop_words_from_file(stop_words_file);
+    for (vector<string>::iterator i = v.begin(); i != v.end(); ++i){
 		if(d)cout<<"\""<<*i<<"\",";
+        if(stop_words_map.count(*i) > 0){
+            continue;
+        }
 		if(token_map.count(*i)>0){
 			token_map[*i] += 1;
 		}else{

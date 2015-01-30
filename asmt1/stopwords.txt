@@ -18,7 +18,7 @@ myself         | reflexive
              | 1st person plural
 we             | subject
 
-| us           | object
+ | us           | object
                | care is required here because US = United States. It is usually
                | safe to remove it if it is in lower case.
 our            | possessive adjective

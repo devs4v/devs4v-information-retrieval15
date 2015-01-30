@@ -8,15 +8,18 @@
 #include <archive_entry.h>
 #include <cstdarg>
 #include <cstdlib>
+#include <algorithm>
+#include <iomanip>
 
 #include <regex>
 #include <iterator>
 #include <map>
+#include <utility>
 #include <cstdint>
 #include "timing.h"
 
 using namespace std;
-#define d true
+#define d false
 
 
 
@@ -29,6 +32,20 @@ die(string error){
 string parse_and_return_text(string);
 map<string, int> tokenize(string);
 vector<string> split(string s, string delim);
+vector<pair<string, int>> frequency_sorted_tokens(map<string, int>);
+
+struct _sort_by_frequency{
+    inline bool operator() (const pair<string, int>& a, const pair<string, int>& b){
+        return ((a.second == b.second)?(a.first < b.first):(a.second > b.second));
+    }
+};
+
+struct _sort_by_lexicography{
+    inline bool operator() (const pair<string, int>& a, const pair<string, int>& b){
+        return ((a.first == b.first)?(a.second < b.second):(a.first < b.first));
+    }
+};
+
 
 int main (int argc, const char * argv[]) 
 {
@@ -48,7 +65,7 @@ int main (int argc, const char * argv[])
     else 
     {
     	int num_docs = 0;
-        while (archive_read_next_header(a, &entry) == ARCHIVE_OK)// && num_docs++ < 20) 
+        while (archive_read_next_header(a, &entry) == ARCHIVE_OK && num_docs++ < 20) 
         {
             const char *currentFile = archive_entry_pathname(entry);
             char *fileContents;
@@ -57,6 +74,8 @@ int main (int argc, const char * argv[])
             archive_read_data(a, fileContents, entry_size); //read data into fileContents string for the HTML file size
             fileContents[entry_size] = '\0';
             if(d)printf("file name = %s, size = %ld\n", currentFile, entry_size);
+            cout<<"\nDOCUMENT STATISTICS\n";
+            cout<<currentFile<<" : "<<entry_size;
             string doc = string(fileContents);
             // printf("%s\n\n", fileContents); //this output over-reads chars from another file in this tar file
             string no_tag_doc = parse_and_return_text(doc);
@@ -66,6 +85,15 @@ int main (int argc, const char * argv[])
             map<string, int> word_map;
             word_map = tokenize(no_tag_doc);
 
+            cout<<"\nTERM STATISTICS\n";
+
+            vector<pair<string, int>> sorted_tokens = frequency_sorted_tokens(word_map);
+            pair<string, int> entry;
+            for (vector<pair<string, int>>::iterator i = sorted_tokens.begin(); i != sorted_tokens.end(); ++i){
+            	entry = *i;
+            	cout<<setw(20)<<entry.first<<" : "<<setw(5)<<entry.second<<"\n";
+            }
+
 
             if(d)cout<<"\nDoc Ends: ==============\n";
                        
@@ -74,16 +102,31 @@ int main (int argc, const char * argv[])
     }
     // printf("exit");
     uint64_t endtime = GetTimeMs64();
-    cout<<"\n=======================\nExecution Time: "<<(endtime - starttime)<<" Microseconds\n=====================================\n";
+    cout<<"\n=================================\nExecution Time: "<<(endtime - starttime)<<" Microseconds\n=================================\n";
     return 0;
 }
+
+vector<pair<string, int>> frequency_sorted_tokens(map<string, int> word_map){
+	vector<pair<string, int>> res;
+	for (std::map<string, int>::iterator i = word_map.begin(); i != word_map.end(); ++i){
+		res.push_back(make_pair(i->first, i->second));
+	}
+	sort(res.begin(), res.end(), _sort_by_frequency());
+
+	return res;
+}
+
 
 map<string, int> tokenize(string no_tag_doc){
 	map<string, int> token_map;
 	vector<string> v = split(no_tag_doc, " ");
 	for (vector<string>::iterator i = v.begin(); i != v.end(); ++i){
 		if(d)cout<<"\""<<*i<<"\",";
-		
+		if(token_map.count(*i)>0){
+			token_map[*i] += 1;
+		}else{
+			token_map[*i] = 1;
+		}
 	}
 	return token_map;
 	
@@ -115,7 +158,7 @@ string parse_and_return_text(string doc){
 	string result;
 	regex no_tag_regex("<.*>");
 	regex no_linefeed_tabs("[(\\n)|(\\t)]");
-	regex no_special_chars("[(\\/)|(:)|(;)|(\\)|(-)]");
+	regex no_special_chars("[(\\/)|(:)|(;)|(\\)|(-)|(,)|(.)]");
 
 	result = regex_replace(doc, no_tag_regex, blankie);
 	result = regex_replace(result, no_linefeed_tabs, blankie);

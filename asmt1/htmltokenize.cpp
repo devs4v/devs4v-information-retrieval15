@@ -88,12 +88,27 @@ int main (int argc, const char * argv[])
             cout<<"\nTERM STATISTICS\n";
 
             vector<pair<string, int>> sorted_tokens = frequency_sorted_tokens(word_map);
+            
+            long num_tokens = word_map.size();
+            double tokens_c[num_tokens];
+
+
             pair<string, int> entry;
+            int j = 0;
             for (vector<pair<string, int>>::iterator i = sorted_tokens.begin(); i != sorted_tokens.end(); ++i){
-            	entry = *i;
-            	cout<<setw(20)<<entry.first<<" : "<<setw(5)<<entry.second<<"\n";
+                ++j;
+                entry = *i;
+                cout<<setw(20)<<entry.first<<" : "<<setw(5)<<entry.second<<"\n";
+                tokens_c[j-1] = j * ((double)entry.second / num_tokens);
             }
 
+            double sum_c = 0.0;
+            for (int i = 0; i < num_tokens; ++i){
+                sum_c += tokens_c[i];
+            }
+            double average_c = sum_c / num_tokens;
+
+            cout<<"\nAverage C for this doc: "<<average_c<<"\n";
 
             if(d)cout<<"\nDoc Ends: ==============\n";
                        

@@ -43,3 +43,10 @@ RUNNING:
 		Part(c):
 			./htmltokenizewithstop.o cacm.tar.gz stopwords.txt
 
+
+
+
+OBSERVATIONS:
+	As asked in part (b) of the question, we do notice from the dataset that the document collection does follow the Zipf's Law. The average C for all the documents lie approximately around the same mean of around 0.51 - 0.60, (precise to 2 decimal places).
+
+	Also for the part(c), the same range is observed for the values of c, i.e. 0.51 - 0.60, which also approximately follows the Zipf's Law.

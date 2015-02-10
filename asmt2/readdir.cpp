@@ -1,23 +1,11 @@
-#include <fstream>
 #include <iostream>
 #include <string>
-#include <vector>
-#include <map>
-#include <regex>
-#include <iterator>
-#include <utility>
-#include <algorithm>
-
-#include <dirent.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 
 #include "timing.h"
+#include "simpletextinverter.h"
+
 
 using namespace std;
-
-
 
 
 int main(int argc, char * argv[]){

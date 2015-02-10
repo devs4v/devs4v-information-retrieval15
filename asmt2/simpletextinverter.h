@@ -1,3 +1,22 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include <regex>
+#include <iterator>
+#include <utility>
+#include <algorithm>
+
+#include <dirent.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
+
+using namespace std;
+
+
 class SimpleTextInverter{
     private:
         string data;

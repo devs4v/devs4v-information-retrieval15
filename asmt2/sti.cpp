@@ -8,7 +8,7 @@
 using namespace std;
 
 
-int main(int argc, char * argv[]){
+int main(int argc, char *argv[]){
     
     if (argc < 2){
         cout<<"ERROR: not enough params!\n Usage: sti.o <filename>";

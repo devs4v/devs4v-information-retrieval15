@@ -3,11 +3,17 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <regex>
+#include <iterator>
+#include <utility>
+#include <algorithm>
 
 #include <dirent.h>
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+
+#include "timing.h"
 
 using namespace std;
 
@@ -15,12 +21,18 @@ using namespace std;
 class SimpleTextInverter{
     private:
         string data;
-        void tokenize
+        string parse_file_to_tokens();
+        string removeEscapeChars();
+        void tokenize();
+        void split();
     public:
         SimpleTextInverter();
         void get_file_data(const string, string&);
-        void load_data(string data);
-        void print_data();
+        // void load_data(string data);
+        // void print_data();
+        void emit(char *, const string outFile);
+        void sort(char *, const string outFile);
+        void invert(char *, const string outFile);
         ~SimpleTextInverter();
         
 };
@@ -49,7 +61,24 @@ void SimpleTextInverter::get_file_data(const string filename, string& fileConten
         return -1;
     }
 }
+void SimpleTextInverter::parse_file_to_tokens(){
+    string res = removeEscapeChars();
+    map<string> m = tokenize();
 
+}
+
+void SimpleTextInverter::removeEscapeChars(){
+    string blankie = " ";
+    string result;
+    // regex no_tag_regex("<.*>");
+    regex no_linefeed_tabs("[(\\n)|(\\t)]");
+    regex no_special_chars("[(\\/)|(*)|(,)|(.)|(;)|(:)|(!)|(?)|(\\’)|(\\\")|([)|(])|(\\()|(\\))]");
+
+    // result = regex_replace(doc, no_tag_regex, blankie);
+    result = regex_replace(result, no_linefeed_tabs, blankie);
+    result = regex_replace(result, no_special_chars, blankie);
+    return result;
+}
 
 int main(){
     ifstream fin;

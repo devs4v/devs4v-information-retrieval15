@@ -14,13 +14,16 @@ int main(int argc, char *argv[]){
         cout<<"ERROR: not enough params!\n Usage: sti.o <filename>";
     }
 
+    uint64_t starttime = GetTimeMs64();
+
     SimpleTextInverter sti;
 
-    // cout << "dir to get files of: " << flush;
-    // getline( cin, dir );  // gets everything the user ENTERs
 
     sti.emit(argv[1]);
     
+
+    uint64_t endtime = GetTimeMs64();
+    cout<<"\n=================================\nExecution Time: "<<(endtime - starttime)<<" Microseconds\n=================================\n";
 
     return 0;
 }

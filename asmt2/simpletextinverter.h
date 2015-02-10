@@ -72,13 +72,27 @@ void SimpleTextInverter::emit(string directory){
     closedir( dp );
 }
 
-map<string, string> SimpleTextInverter::map_string_data_to_tokens(string filename){
-
+map<string, string> SimpleTextInverter::_map_string_data_to_tokens(const string filename){
+    vector<string> tokens;
+    _parse_file_to_tokens(filename, tokens);
+    vector<string>::iterator token_it;
+    map<string, string> mapped_tokens;
+    for(token_it = tokens.begin(); token_it != tokens.end(); ++token_it){
+        mapped_tokens[*token_it] = filename;
+    }
+    return mapped_tokens;
 }
 
-void SimpleTextInverter::get_file_data(const string filename, string& fileContents){
+void SimpleTextInverter::_parse_file_to_tokens(const string filename, vector<string>& tokens){
+    string fileData;
+    _get_file_data(filename, fileData);
+    string sanitized_chars = _remove_escape_chars();
+    tokens = tokenize(sanitized_chars);
+}
+
+void SimpleTextInverter::_get_file_data(const string filename, string& fileContents){
     errno = 0;
-    ifstream in(filename.c_str(), std::ios::in | std::ios::binary);
+    ifstream in(filename.c_str(), ios::in | ios::binary);
     if (in){
         in.seekg(0, ios::end);
         fileContents.resize(in.tellg());
@@ -90,20 +104,14 @@ void SimpleTextInverter::get_file_data(const string filename, string& fileConten
         return -1;
     }
 }
-vector<string> SimpleTextInverter::parse_file_to_tokens(const string filename){
-    string fileData;
-    get_file_data(filename, fileData);
-    string sanitized_chars = removeEscapeChars();
-    map<string, string> m = tokenize(sanitized_chars, filename);
 
-}
 
-void SimpleTextInverter::removeEscapeChars(){
+void SimpleTextInverter::_remove_escape_chars(){
     string blankie = " ";
     string result;
     // regex no_tag_regex("<.*>");
     regex no_linefeed_tabs("[(\\n)|(\\t)]");
-    regex no_special_chars("[(\\/)|(*)|(,)|(.)|(;)|(:)|(!)|(?)|(\\’)|(\\\")|([)|(])|(\\()|(\\))]");
+    regex no_special_chars("[(\\/)|(*)|(,)|(.)|(;)|(:)|(!)|(?)|(\')|(\")|([)|(])|(()|())]");
 
     // result = regex_replace(doc, no_tag_regex, blankie);
     result = regex_replace(result, no_linefeed_tabs, blankie);
@@ -111,3 +119,27 @@ void SimpleTextInverter::removeEscapeChars(){
     return result;
 }
 
+void SimpleTextInverter::_tokenize(){
+    return split(no_tag_doc, " ");
+}
+
+vector<string> split(string s, string delim){
+    vector<string> res;
+    
+    if(delim.empty()){
+        // vector<string> res;
+        res.push_back(s);
+        return res;
+    }
+    size_t pos = 0;
+    string token;
+    while ((pos = s.find(delim)) != string::npos) {
+        token = s.substr(0, pos);
+        if(!token.empty()){
+            res.push_back(token);
+        }
+        // std::cout << token << std::endl;
+        s.erase(0, pos + delim.length());
+    }
+    return res;
+}

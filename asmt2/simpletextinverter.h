@@ -27,9 +27,10 @@ struct _sort_by_lexicography {
 class SimpleTextInverter{
     private:
         // map<string, string> _map_string_data_to_tokens(const string);
-        void _parse_file_to_tokens(const string, set<string>&);
-        void _get_file_data(const string, string&);
-        string _remove_escape_chars(string&);
+        int _parse_file_to_tokens(const string, set<string>&);
+        int _get_file_data(const string, string&);
+        int _write_tokens_to_file(set<string>&);
+        int _remove_escape_chars(string&);
         set<string> _tokenize(string&);
         set<string> _split(string&, string){
     public:
@@ -44,8 +45,7 @@ class SimpleTextInverter{
 void SimpleTextInverter::emit(string directory){
     
     ifstream fin;
-    ofstream fout;
-    fout.open("emit.out", ios::out | ios::app);
+    
 
     string dir, filepath;
     string data;
@@ -72,19 +72,21 @@ void SimpleTextInverter::emit(string directory){
         if (stat( filepath.c_str(), &filestat )) continue;
         if (S_ISDIR( filestat.st_mode ))         continue;
 
-        if(fout.is_open()){
-            _parse_file_to_tokens(filepath, mapped_tokens);
-
-            /* TODO write map to emit.out */
-            for (set<string>::iterator i = mapped_tokens.begin(); i != mapped_tokens.end(); ++i){
-                fout<<*i<<":"<<filename<<endl;
+        
+            if(0 != _parse_file_to_tokens(filepath, mapped_tokens)){
+                cout<<"\nError: Error in parsing file for tokens. (Continuing with next file.)";
+                continue;
             }
-        }
+
+            if(0 != _write_tokens_to_file(mapped_tokens)){
+                cout<<"\nError: Error in writing tokens to disk. (Continuing with next file.)";
+                continue;
+            }
+            
 
         if(d)cout<<"\nFinished writing to emit for "<<filename;
 
     }
-    fout.close();
     closedir( dp );
 }
 
@@ -99,14 +101,22 @@ void SimpleTextInverter::emit(string directory){
 //     return mapped_tokens;
 // }
 
-void SimpleTextInverter::_parse_file_to_tokens(const string filename, set<string>& tokens){
+int SimpleTextInverter::_parse_file_to_tokens(const string filename, set<string>& tokens){
     string fileData;
-    _get_file_data(filename, fileData);
-    string sanitized_chars = _remove_escape_chars(fileData);
+    if(0 != _get_file_data(filename, fileData)){
+        cout<<"\nError: Error in fetching file data from file.";
+        return -1;
+    }
+    if(0 != _remove_escape_chars(fileData)){
+        cout<<"\nError: Error in removing escape chars.";
+        return -1;
+    }
     tokens = tokenize(sanitized_chars);
+
+    return 0;
 }
 
-void SimpleTextInverter::_get_file_data(const string filename, string& fileContents){
+int SimpleTextInverter::_get_file_data(const string filename, string& fileContents){
     errno = 0;
     ifstream in(filename.c_str(), ios::in | ios::binary);
     if (in){
@@ -117,22 +127,23 @@ void SimpleTextInverter::_get_file_data(const string filename, string& fileConte
         in.close();
         return 0;
     }else{
+        cout<<"\nError: Error in opening file to read tokens.";
         return -1;
     }
 }
 
 
-string SimpleTextInverter::_remove_escape_chars(string& str){
+int SimpleTextInverter::_remove_escape_chars(string& str){
     string blankie = " ";
     string result;
     // regex no_tag_regex("<.*>");
-    regex no_linefeed_tabs("[(\\n)|(\\t)]");
-    regex no_special_chars("[(\\/)|(*)|(,)|(.)|(;)|(:)|(!)|(?)|(\')|(\")|([)|(])|(()|())]");
+    regex no_special_chars("[(\\n)|(\\t)|(\\/)|(\\\\)|(*)|(,)|(.)|(;)|(:)|(!)|(?)|(')|(\")|([)|(])|(()|())]");
+    // regex ("[]");
 
     // result = regex_replace(doc, no_tag_regex, blankie);
-    result = regex_replace(str, no_linefeed_tabs, blankie);
-    result = regex_replace(result, no_special_chars, blankie);
-    return result;
+    // result = regex_replace(str, no_linefeed_tabs, blankie);
+    str = regex_replace(str, no_special_chars, blankie);
+    return 0;
 }
 
 set<string> SimpleTextInverter::_tokenize(string& no_tag_doc){
@@ -158,4 +169,19 @@ set<string> _split(string& s, string delim){
         s.erase(0, pos + delim.length());
     }
     return res;
+}
+
+int SimpleTextInverter::_write_tokens_to_file(set<string>& tokens){
+    ofstream fout;
+    fout.open("emit.out", ios::out | ios::app);
+
+    if(fout.is_open()){
+        for (set<string>::iterator i = mapped_tokens.begin(); i != mapped_tokens.end(); ++i){
+            fout<<*i<<":"<<filename<<endl;
+        }
+    }else{
+        cout<<"\nError: Could not open emit.out file!";
+    }
+    fout.close();
+    return 0;
 }

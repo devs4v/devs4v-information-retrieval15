@@ -19,7 +19,7 @@ using namespace std;
 
 class SimpleTextInverter{
     private:
-        map<string, string> _map_string_data_to_tokens(const string);
+        // map<string, string> _map_string_data_to_tokens(const string);
         void _parse_file_to_tokens(const string, vector<string>&);
         void _get_file_data(const string, string&);
         string _remove_escape_chars(string&);
@@ -27,9 +27,9 @@ class SimpleTextInverter{
         vector<string> _split(string&, string){
     public:
         SimpleTextInverter();
-        void emit(char *, const string outFile);
-        void sort(char *, const string outFile);
-        void invert(char *, const string outFile);
+        void emit(char *);
+        void sort(char *);
+        void invert(char *);
         ~SimpleTextInverter();
         
 };
@@ -37,7 +37,7 @@ class SimpleTextInverter{
 void SimpleTextInverter::emit(string directory){
     
     ifstream fin;
-    ofstream fout;
+    ofstream fout("emit.out", ios::out | ios::app);
 
     string dir, filepath;
     string data;
@@ -46,8 +46,8 @@ void SimpleTextInverter::emit(string directory){
     struct stat filestat;
     
     string fileContents;
-    map<string, string> mapped_tokens;
-
+    vector<string> mapped_tokens;
+    string filename;
     errno = 0;
     dp = opendir( dir.c_str() );
     if(dp == NULL){
@@ -57,32 +57,39 @@ void SimpleTextInverter::emit(string directory){
 
     while ((dirp = readdir( dp ))){
         filepath = dir + "/" + dirp->d_name;
+        filename = dirp->d_name;
         if(d)cout<<"\nreading"<<filepath;
 
         // If the file is a directory (or is in some way invalid) we'll skip it 
         if (stat( filepath.c_str(), &filestat )) continue;
         if (S_ISDIR( filestat.st_mode ))         continue;
 
-        mapped_tokens = map_string_data_to_tokens(filepath);
+        if(fout.is_open()){
+            _parse_file_to_tokens(filepath, mapped_tokens);
 
-        /* TODO write map to emit.out */
+            /* TODO write map to emit.out */
+            for (std::vector<string>::iterator i = mapped_tokens.begin(); i != mapped_tokens.end(); ++i){
+                fout<<*i<<":"<<filename<<endl;
+            }
+        }
 
-        free(fileContents);
+        if(d)cout<<"\nFinished writing to emit for "<<filename;
+
     }
 
     closedir( dp );
 }
 
-map<string, string> SimpleTextInverter::_map_string_data_to_tokens(const string filename){
-    vector<string> tokens;
-    _parse_file_to_tokens(filename, tokens);
-    vector<string>::iterator token_it;
-    map<string, string> mapped_tokens;
-    for(token_it = tokens.begin(); token_it != tokens.end(); ++token_it){
-        mapped_tokens[*token_it] = filename;
-    }
-    return mapped_tokens;
-}
+// map<string, string> SimpleTextInverter::_map_string_data_to_tokens(const string filename){
+//     vector<string> tokens;
+//     _parse_file_to_tokens(filename, tokens);
+//     vector<string>::iterator token_it;
+//     map<string, string> mapped_tokens;
+//     for(token_it = tokens.begin(); token_it != tokens.end(); ++token_it){
+//         mapped_tokens[*token_it] = filename;
+//     }
+//     return mapped_tokens;
+// }
 
 void SimpleTextInverter::_parse_file_to_tokens(const string filename, vector<string>& tokens){
     string fileData;

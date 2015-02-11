@@ -19,13 +19,14 @@ using namespace std;
 
 class SimpleTextInverter{
     private:
-        string parse_file_to_tokens();
-        string removeEscapeChars();
-        void tokenize();
-        void split();
+        map<string, string> _map_string_data_to_tokens(const string);
+        void _parse_file_to_tokens(const string, vector<string>&);
+        void _get_file_data(const string, string&);
+        string _remove_escape_chars(string&);
+        vector<string> _tokenize(string&);
+        vector<string> _split(string&, string){
     public:
         SimpleTextInverter();
-        void get_file_data(const string, string&);
         void emit(char *, const string outFile);
         void sort(char *, const string outFile);
         void invert(char *, const string outFile);
@@ -86,7 +87,7 @@ map<string, string> SimpleTextInverter::_map_string_data_to_tokens(const string 
 void SimpleTextInverter::_parse_file_to_tokens(const string filename, vector<string>& tokens){
     string fileData;
     _get_file_data(filename, fileData);
-    string sanitized_chars = _remove_escape_chars();
+    string sanitized_chars = _remove_escape_chars(fileData);
     tokens = tokenize(sanitized_chars);
 }
 
@@ -106,7 +107,7 @@ void SimpleTextInverter::_get_file_data(const string filename, string& fileConte
 }
 
 
-void SimpleTextInverter::_remove_escape_chars(){
+string SimpleTextInverter::_remove_escape_chars(string& str){
     string blankie = " ";
     string result;
     // regex no_tag_regex("<.*>");
@@ -114,16 +115,16 @@ void SimpleTextInverter::_remove_escape_chars(){
     regex no_special_chars("[(\\/)|(*)|(,)|(.)|(;)|(:)|(!)|(?)|(\')|(\")|([)|(])|(()|())]");
 
     // result = regex_replace(doc, no_tag_regex, blankie);
-    result = regex_replace(result, no_linefeed_tabs, blankie);
+    result = regex_replace(str, no_linefeed_tabs, blankie);
     result = regex_replace(result, no_special_chars, blankie);
     return result;
 }
 
-void SimpleTextInverter::_tokenize(){
+vector<string> SimpleTextInverter::_tokenize(string& no_tag_doc){
     return split(no_tag_doc, " ");
 }
 
-vector<string> split(string s, string delim){
+vector<string> _split(string& s, string delim){
     vector<string> res;
     
     if(delim.empty()){

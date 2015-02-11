@@ -16,15 +16,22 @@
 
 using namespace std;
 
-
+struct _sort_by_lexicography {
+    static bool compare_chars(char x, char y) {
+        return toupper(x) < toupper(y);
+    }
+    bool operator()(const string& x, const string& y) const {
+        return lexicographical_compare(x.begin(), x.end(), y.begin(), y.end(), compare_chars);
+    }
+};
 class SimpleTextInverter{
     private:
         // map<string, string> _map_string_data_to_tokens(const string);
-        void _parse_file_to_tokens(const string, vector<string>&);
+        void _parse_file_to_tokens(const string, set<string>&);
         void _get_file_data(const string, string&);
         string _remove_escape_chars(string&);
-        vector<string> _tokenize(string&);
-        vector<string> _split(string&, string){
+        set<string> _tokenize(string&);
+        set<string> _split(string&, string){
     public:
         SimpleTextInverter();
         void emit(char *);
@@ -37,7 +44,8 @@ class SimpleTextInverter{
 void SimpleTextInverter::emit(string directory){
     
     ifstream fin;
-    ofstream fout("emit.out", ios::out | ios::app);
+    ofstream fout;
+    fout.open("emit.out", ios::out | ios::app);
 
     string dir, filepath;
     string data;
@@ -46,7 +54,7 @@ void SimpleTextInverter::emit(string directory){
     struct stat filestat;
     
     string fileContents;
-    vector<string> mapped_tokens;
+    set<string, _sort_by_lexicography> mapped_tokens;
     string filename;
     errno = 0;
     dp = opendir( dir.c_str() );
@@ -68,7 +76,7 @@ void SimpleTextInverter::emit(string directory){
             _parse_file_to_tokens(filepath, mapped_tokens);
 
             /* TODO write map to emit.out */
-            for (std::vector<string>::iterator i = mapped_tokens.begin(); i != mapped_tokens.end(); ++i){
+            for (set<string>::iterator i = mapped_tokens.begin(); i != mapped_tokens.end(); ++i){
                 fout<<*i<<":"<<filename<<endl;
             }
         }
@@ -76,7 +84,7 @@ void SimpleTextInverter::emit(string directory){
         if(d)cout<<"\nFinished writing to emit for "<<filename;
 
     }
-
+    fout.close();
     closedir( dp );
 }
 
@@ -91,7 +99,7 @@ void SimpleTextInverter::emit(string directory){
 //     return mapped_tokens;
 // }
 
-void SimpleTextInverter::_parse_file_to_tokens(const string filename, vector<string>& tokens){
+void SimpleTextInverter::_parse_file_to_tokens(const string filename, set<string>& tokens){
     string fileData;
     _get_file_data(filename, fileData);
     string sanitized_chars = _remove_escape_chars(fileData);
@@ -127,16 +135,16 @@ string SimpleTextInverter::_remove_escape_chars(string& str){
     return result;
 }
 
-vector<string> SimpleTextInverter::_tokenize(string& no_tag_doc){
+set<string> SimpleTextInverter::_tokenize(string& no_tag_doc){
     return split(no_tag_doc, " ");
 }
 
-vector<string> _split(string& s, string delim){
-    vector<string> res;
+set<string> _split(string& s, string delim){
+    set<string, _sort_by_lexicography> res;
     
     if(delim.empty()){
         // vector<string> res;
-        res.push_back(s);
+        res.insert(s);
         return res;
     }
     size_t pos = 0;
@@ -144,7 +152,7 @@ vector<string> _split(string& s, string delim){
     while ((pos = s.find(delim)) != string::npos) {
         token = s.substr(0, pos);
         if(!token.empty()){
-            res.push_back(token);
+            res.insert(token);
         }
         // std::cout << token << std::endl;
         s.erase(0, pos + delim.length());

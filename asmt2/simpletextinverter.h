@@ -136,7 +136,7 @@ int SimpleTextInverter::_remove_escape_chars(string& str){
     string blankie = " ";
     string result;
     // regex no_tag_regex("<.*>");
-    regex no_special_chars("[(\\n)|(\\t)|(\\/)|(\\*)|(,)|(\\.)|(;)|(:)|(\\!)|(\\?)|(')|(\")|(\\[)|(\\])|(\\()|(\\))]");
+    regex no_special_chars("[(\\n)|(\\t)|(\\/)|(\\*)|(,)|(~)|(\\.)|(;)|(:)|(\\!)|(\\?)|(')|(\")|(\\[)|(\\])|(\\()|(\\))]");
     // regex ("[]");
 
     // result = regex_replace(doc, no_tag_regex, blankie);

@@ -218,6 +218,11 @@ void SimpleTextInverter::sort(char *emit_filename = "emit.out"){
 }
 
 int SimpleTextInverter::_load_emit_data(string emit_file, vector<pair<string, string>>& emit_tokens){
+    ifstream fin;
+    fin.open(emit_file, ios::in);
+
+
+    fin.close();
     return 0;
 }
 
@@ -228,13 +233,16 @@ int SimpleTextInverter::_sort_emit_data(vector<pair<string, string>>& emit_token
 int SimpleTextInverter::_write_emit_data(vector<pair<string, string>>& emit_tokens){
     string outfile = "emit.out";
 
-    ofstream fout(outfile, ios::out);
+    ofstream fout;
+    fout.open(outfile, ios::out);
 
     if(fout.is_open()){
 
     }else{
         cout<<"\nError: Could not open emit.out file for writing.";
     }
+
+    fout.close();
     return 0;
 }
 
@@ -268,12 +276,15 @@ int SimpleTextInverter::_invert_tokens(vector<pair<string, string>>& sorted_toke
 
 int SimpleTextInverter::_write_inverted_tokens(map<string, vector<string>>& inverted_tokens){
     string outfile = "invert.out";
-    ofstream fout(outfile, ios::out);
+    ofstream fout;
+    fout.open(outfile, ios::out);
 
     if(fout.is_open()){
 
     }else{
         cout<<"\nError: Could not open invert.out file for writing.";
     }
+    
+    fout.close();
     return 0;
 }

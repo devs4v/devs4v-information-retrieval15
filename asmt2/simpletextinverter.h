@@ -42,9 +42,9 @@ class SimpleTextInverter{
         int _write_emit_data(vector<pair<string, string>>&);
 
         /* invert functions */
-        int _load_sorted_data(string, map<string, vector<string>>&);
-        int _invert_tokens(map<string, vector<string>>&);
-        int _write_inverted_tokens(map<string, vector<string>>&);
+        int _load_sorted_data(string, vector<pair<string, string>>&);
+        int _invert_tokens(vector<pair<string, string>>&, vector<pair<string, vector<string>>>&);
+        int _write_inverted_tokens(vector<pair<string, vector<string>>>&);
     public:
         void emit(const char *);
         void sort(const char *);
@@ -98,17 +98,6 @@ void SimpleTextInverter::emit(const char *direc){
     }
     closedir( dp );
 }
-
-// map<string, string> SimpleTextInverter::_map_string_data_to_tokens(const string filename){
-//     vector<string> tokens;
-//     _parse_file_to_tokens(filename, tokens);
-//     vector<string>::iterator token_it;
-//     map<string, string> mapped_tokens;
-//     for(token_it = tokens.begin(); token_it != tokens.end(); ++token_it){
-//         mapped_tokens[*token_it] = filename;
-//     }
-//     return mapped_tokens;
-// }
 
 int SimpleTextInverter::_parse_file_to_tokens(const string filename, set<string>& tokens){
     string fileData;
@@ -251,7 +240,7 @@ int SimpleTextInverter::_write_emit_data(vector<pair<string, string>>& emit_toke
 void SimpleTextInverter::invert(const char *sorted_filename = "sort.out"){
     vector<pair<string, string>> sorted_tokens;
     string sorted_file(sorted_filename);
-    map<string, vector<string>> inverted_tokens;
+    vector<pair<string, vector<string>>> inverted_tokens;
     if(0 != _load_sorted_data(sorted_file, sorted_tokens)){
         cout<<"\nError: Could not load sorted data from file: "<<sorted_filename;
         return;
@@ -269,12 +258,11 @@ void SimpleTextInverter::invert(const char *sorted_filename = "sort.out"){
 int SimpleTextInverter::_load_sorted_data(string sorted_file, vector<pair<string, string>>& sorted_tokens){
     return 0;
 }
-
-int SimpleTextInverter::_invert_tokens(vector<pair<string, string>>& sorted_tokens, map<string, vector<string>>& inverted_tokens){
+int SimpleTextInverter::_invert_tokens(vector<pair<string, string>>& sorted_tokens, vector<pair<string, vector<string>>>& inverted_tokens){
     return 0;
 }
 
-int SimpleTextInverter::_write_inverted_tokens(map<string, vector<string>>& inverted_tokens){
+int SimpleTextInverter::_write_inverted_tokens(vector<pair<string, vector<string>>>& inverted_tokens){
     string outfile = "invert.out";
     ofstream fout;
     fout.open(outfile, ios::out);

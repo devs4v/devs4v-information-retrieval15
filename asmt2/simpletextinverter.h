@@ -161,6 +161,7 @@ set<string> SimpleTextInverter::_split(string& s, string delim){
     string token;
     while ((pos = s.find(delim)) != string::npos) {
         token = s.substr(0, pos);
+        transform(token.begin(), token.end(), token.begin(), ::tolower);
         if(!token.empty()){
             res.insert(token);
         }
@@ -183,4 +184,24 @@ int SimpleTextInverter::_write_tokens_to_file(set<string>& tokens, string filena
     }
     fout.close();
     return 0;
+}
+
+
+/* sort functions */
+
+void SimpleTextInverter::sort(char *emit_file = "emit.out"){
+    vector<pair<string, string>> emit_tokens;
+    string emit_filename(emit_file);
+    if(0 != _load_emit_data(emit_filename, emit_tokens)){
+        cout<<"\nError: Could not load emit data from file: "<<emit_filename;
+        return;
+    }
+    if(0 != _sort_emit_data(emit_tokens)){
+        cout<<"\nError: Could not sort emit data.";
+        return;
+    }
+    if(0 != _write_emit_data(emit_tokens){
+        cout<<"\nError: Could not write data to sort.out.";
+        return;
+    }
 }

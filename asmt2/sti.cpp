@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 
     string directory_to_read(argv[1]);
 
-    sti.emit(directory_to_read);
+    sti.emit(directory_to_read.c_str());
     
 
     uint64_t endtime = GetTimeMs64();

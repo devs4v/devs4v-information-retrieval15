@@ -46,13 +46,13 @@ class SimpleTextInverter{
         int _invert_tokens(map<string, vector<string>>&);
         int _write_inverted_tokens(map<string, vector<string>>&);
     public:
-        void emit(char *);
-        void sort(char *);
-        void invert(char *);
+        void emit(const char *);
+        void sort(const char *);
+        void invert(const char *);
         
 };
 
-void SimpleTextInverter::emit(char *direc){
+void SimpleTextInverter::emit(const char *direc){
     
     ifstream fin;
     string directory(direc);
@@ -199,7 +199,7 @@ int SimpleTextInverter::_write_tokens_to_file(set<string>& tokens, string filena
 
 /* sort functions */
 
-void SimpleTextInverter::sort(char *emit_filename = "emit.out"){
+void SimpleTextInverter::sort(const char *emit_filename = "emit.out"){
     vector<pair<string, string>> emit_tokens;
     string emit_file(emit_filename);
 
@@ -248,7 +248,7 @@ int SimpleTextInverter::_write_emit_data(vector<pair<string, string>>& emit_toke
 
 
 
-void SimpleTextInverter::invert(char *sorted_filename = "sort.out"){
+void SimpleTextInverter::invert(const char *sorted_filename = "sort.out"){
     vector<pair<string, string>> sorted_tokens;
     string sorted_file(sorted_filename);
     map<string, vector<string>> inverted_tokens;
@@ -284,7 +284,7 @@ int SimpleTextInverter::_write_inverted_tokens(map<string, vector<string>>& inve
     }else{
         cout<<"\nError: Could not open invert.out file for writing.";
     }
-    
+
     fout.close();
     return 0;
 }

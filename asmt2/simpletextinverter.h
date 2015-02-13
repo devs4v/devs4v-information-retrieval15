@@ -208,7 +208,15 @@ void SimpleTextInverter::sort(const char *emit_filename = "emit.out"){
 
 int SimpleTextInverter::_load_emit_data(string emit_file, vector<pair<string, string>>& emit_tokens){
     ifstream fin;
+    emit_tokens.clear();
+    vector<string> fileLineInput;
+    string fileLine;
     fin.open(emit_file, ios::in);
+
+    while(getline(fin, fileLine)){
+        fileLineInput = _split(fileLine, ":");
+        emit_tokens.push_back(make_pair(fileLineInput[0], fileLineInput[1]));
+    }
 
 
     fin.close();

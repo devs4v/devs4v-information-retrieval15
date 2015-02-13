@@ -28,13 +28,23 @@ using namespace std;
 // };
 class SimpleTextInverter{
     private:
-        // map<string, string> _map_string_data_to_tokens(const string);
+        /* emit functions */
         int _parse_file_to_tokens(const string, set<string>&);
         int _get_file_data(const string, string&);
         int _write_tokens_to_file(set<string>&, string);
         int _remove_escape_chars(string&);
         set<string> _tokenize(string&);
         set<string> _split(string&, string);
+
+        /* sort functions */
+        void _load_emit_data(string, vector<pair<string, string>>&);
+        void _sort_emit_data(vector<pair<string, string>>&);
+        void _write_emit_data(vector<pair<string, string>>&);
+
+        /* invert functions */
+        void _load_sorted_data(string, map<string, vector<string>>&);
+        void _sort_emit_data(map<string, vector<string>>&);
+        void _write_inverted_tokens(map<string, vector<string>>&);
     public:
         void emit(char *);
         void sort(char *);
@@ -189,10 +199,11 @@ int SimpleTextInverter::_write_tokens_to_file(set<string>& tokens, string filena
 
 /* sort functions */
 
-void SimpleTextInverter::sort(char *emit_file = "emit.out"){
+void SimpleTextInverter::sort(char *emit_filename = "emit.out"){
     vector<pair<string, string>> emit_tokens;
-    string emit_filename(emit_file);
-    if(0 != _load_emit_data(emit_filename, emit_tokens)){
+    string emit_file(emit_filename);
+
+    if(0 != _load_emit_data(emit_file, emit_tokens)){
         cout<<"\nError: Could not load emit data from file: "<<emit_filename;
         return;
     }
@@ -200,8 +211,28 @@ void SimpleTextInverter::sort(char *emit_file = "emit.out"){
         cout<<"\nError: Could not sort emit data.";
         return;
     }
-    if(0 != _write_emit_data(emit_tokens){
+    if(0 != _write_emit_data(emit_tokens)){
         cout<<"\nError: Could not write data to sort.out.";
+        return;
+    }
+}
+
+
+
+void SimpleTextInverter::invert(char *sorted_filename = "sort.out"){
+    vector<pair<string, string>> sorted_tokens;
+    string sorted_file(sorted_filename);
+    map<string, vector<string>> inverted_tokens;
+    if(0 != _load_sorted_data(sorted_file, sorted_tokens)){
+        cout<<"\nError: Could not load sorted data from file: "<<emit_filename;
+        return;
+    }
+    if(0 != _invert_tokens(sorted_tokens)){
+        cout<<"\nError: Could not invert sorted emit data.";
+        return;
+    }
+    if(0 != _write_inverted_tokens(sorted_tokens)){
+        cout<<"\nError: Could not load inverted data to invert.out.";
         return;
     }
 }

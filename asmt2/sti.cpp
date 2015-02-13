@@ -18,8 +18,9 @@ int main(int argc, char *argv[]){
 
     SimpleTextInverter sti;
 
+    string directory_to_read(argv[1]);
 
-    sti.emit(argv[1]);
+    sti.emit(directory_to_read);
     
 
     uint64_t endtime = GetTimeMs64();

@@ -37,14 +37,14 @@ class SimpleTextInverter{
         set<string> _split(string&, string);
 
         /* sort functions */
-        void _load_emit_data(string, vector<pair<string, string>>&);
-        void _sort_emit_data(vector<pair<string, string>>&);
-        void _write_emit_data(vector<pair<string, string>>&);
+        int _load_emit_data(string, vector<pair<string, string>>&);
+        int _sort_emit_data(vector<pair<string, string>>&);
+        int _write_emit_data(vector<pair<string, string>>&);
 
         /* invert functions */
-        void _load_sorted_data(string, map<string, vector<string>>&);
-        void _sort_emit_data(map<string, vector<string>>&);
-        void _write_inverted_tokens(map<string, vector<string>>&);
+        int _load_sorted_data(string, map<string, vector<string>>&);
+        int _invert_tokens(map<string, vector<string>>&);
+        int _write_inverted_tokens(map<string, vector<string>>&);
     public:
         void emit(char *);
         void sort(char *);
@@ -217,6 +217,27 @@ void SimpleTextInverter::sort(char *emit_filename = "emit.out"){
     }
 }
 
+int SimpleTextInverter::_load_emit_data(string emit_file, vector<pair<string, string>>& emit_tokens){
+    return 0;
+}
+
+int SimpleTextInverter::_sort_emit_data(vector<pair<string, string>>& emit_tokens){
+    return 0;
+}
+
+int SimpleTextInverter::_write_emit_data(vector<pair<string, string>>& emit_tokens){
+    string outfile = "emit.out";
+
+    ofstream fout(outfile, ios::out);
+
+    if(fout.is_open()){
+
+    }else{
+        cout<<"\nError: Could not open emit.out file for writing.";
+    }
+    return 0;
+}
+
 
 
 void SimpleTextInverter::invert(char *sorted_filename = "sort.out"){
@@ -224,15 +245,35 @@ void SimpleTextInverter::invert(char *sorted_filename = "sort.out"){
     string sorted_file(sorted_filename);
     map<string, vector<string>> inverted_tokens;
     if(0 != _load_sorted_data(sorted_file, sorted_tokens)){
-        cout<<"\nError: Could not load sorted data from file: "<<emit_filename;
+        cout<<"\nError: Could not load sorted data from file: "<<sorted_filename;
         return;
     }
-    if(0 != _invert_tokens(sorted_tokens)){
+    if(0 != _invert_tokens(sorted_tokens, inverted_tokens)){
         cout<<"\nError: Could not invert sorted emit data.";
         return;
     }
-    if(0 != _write_inverted_tokens(sorted_tokens)){
+    if(0 != _write_inverted_tokens(inverted_tokens)){
         cout<<"\nError: Could not load inverted data to invert.out.";
         return;
     }
+}
+
+int SimpleTextInverter::_load_sorted_data(string sorted_file, vector<pair<string, string>>& sorted_tokens){
+    return 0;
+}
+
+int SimpleTextInverter::_invert_tokens(vector<pair<string, string>>& sorted_tokens, map<string, vector<string>>& inverted_tokens){
+    return 0;
+}
+
+int SimpleTextInverter::_write_inverted_tokens(map<string, vector<string>>& inverted_tokens){
+    string outfile = "invert.out";
+    ofstream fout(outfile, ios::out);
+
+    if(fout.is_open()){
+
+    }else{
+        cout<<"\nError: Could not open invert.out file for writing.";
+    }
+    return 0;
 }

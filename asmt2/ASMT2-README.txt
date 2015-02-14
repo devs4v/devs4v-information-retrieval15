@@ -13,25 +13,33 @@ Dependencies:
 
 
 FILES:
-	This project has x source code files:
+	This project has 3 source code files:
+		sti.cpp 				: A driver program to run the 3 functions that we were instructed to write and carry out.
+		simpletextinverter.h 	: Main header file for SimpleTextInverter class with emit, sort and invert public functions.
+		timing.h				: timing functions header file.
+	
+	Additionally, the provided files for use as dataset are kept in the "files" folder.
+	
 
 COMPILING:
 
 	You can try to compile, although there is an executable added, by the name htmltokenize.o which can be directly run with the name of the tarball.
 	Compile the program as:
 
-		Part(x):
-			g++-4.9 -std=c++11 -Wno-deprecated-declarations -o <filename>.o <filename>.cpp
+		Part(1):
+			g++-4.9 -std=c++11 -Wno-deprecated-declarations -o sti.o sti.cpp
+
+			[Note that the above command will also compile the header files for the SimpleTextInverter class.]
 		
 
 RUNNING:
 
 	RUN program as:
-		Part(x):
-			./<filename>.o <args>
+		Part(1):
+			./sti.o files
 		
 
 
 
 OBSERVATIONS:
-	<Obs>
+	We observe that we have generated an inverted index of the tokens (words, numbers, etc.) extracted from the given data files. This inverted index mapping can be useful in retrieval of information.

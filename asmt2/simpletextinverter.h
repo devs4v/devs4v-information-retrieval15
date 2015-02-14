@@ -219,29 +219,29 @@ int SimpleTextInverter::_write_tokens_to_file(set<string>& tokens, string filena
 
 /* sort functions */
 
-void SimpleTextInverter::sort(const char *emit_filename){// = "emit.out"){
+void SimpleTextInverter::sort(const char *emit_filename = "emit.out"){
     vector<pair<string, string>> emit_tokens;
     // string emit_file(emit_filename);
     string emit_file;
     emit_file = "emit.out";
 
-    if(d)cout<<"\n(From sort) Loading emit data.";
+    // if(d)cout<<"\n(From sort) Loading emit data.";
 
     if(0 != _load_emit_data(emit_file, emit_tokens)){
         cout<<"\nError: Could not load emit data from file: "<<emit_filename;
         return;
     }
-    if(d)cout<<"\n(From sort) LOADED emit data. Now sorting.";
+    // if(d)cout<<"\n(From sort) LOADED emit data. Now sorting.";
     if(0 != _sort_emit_data(emit_tokens)){
         cout<<"\nError: Could not sort emit data.";
         return;
     }
-    if(d)cout<<"\n(From sort) SORTED emit data. Now writing.";
+    // if(d)cout<<"\n(From sort) SORTED emit data. Now writing.";
     if(0 != _write_sorted_data(emit_tokens)){
         cout<<"\nError: Could not write data to sort.out.";
         return;
     }
-    if(d)cout<<"\n(From sort) WRITTEND emit data. SORT DONE.";
+    // if(d)cout<<"\n(From sort) WRITTEND emit data. SORT DONE.";
     
 }
 
@@ -297,7 +297,7 @@ int SimpleTextInverter::_write_sorted_data(vector<pair<string, string>>& emit_to
     return 0;
 }
 
-void SimpleTextInverter::invert(const char *sorted_filename){// = "sort.out"){
+void SimpleTextInverter::invert(const char *sorted_filename = "sort.out"){
     vector<pair<string, string>> sorted_tokens;
     // string sorted_file(sorted_filename);
     string sorted_file("sort.out");
@@ -374,9 +374,11 @@ int SimpleTextInverter::_write_inverted_tokens(vector<pair<string, vector<string
             term = i->first;
 
             fout<<term<<":";
+            vector<string>::iterator last_item = eachFileList.end();
+            --last_item;
             for (std::vector<string>::iterator i = eachFileList.begin(); i != eachFileList.end(); ++i){
                 fout<<*i;
-                if(i != eachFileList.end()){
+                if(i != last_item){
                     fout<<",";
                 }
             }

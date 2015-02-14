@@ -227,48 +227,6 @@ void SimpleTextInverter::sort(const char *emit_filename){// = "emit.out"){
 
     if(d)cout<<"\n(From sort) Loading emit data.";
 
-    /*vector<long> positions;
-
-    ifstream fin;
-    fin.open("emit.out");
-
-    string current_file = "";
-    string line;
-    vector<string> linePart;
-    long pos = (long)fin.tellg();
-    
-    if(d)cout<<"\nTEST:";
-    string thing = "my:thing";
-    linePart = _split_to_vector(thing, ":");
-        if(d)cout<<"\n\t\t Separated: "<<linePart[0]<<" & "<<linePart[1];
-        
-
-    while(getline(fin, line)){
-
-
-        linePart = _split_to_vector(line, ":");
-        if(d)cout<<"\n Separated: "<<linePart[0]<<" & "<<linePart[1];
-        if("" == current_file || current_file != linePart[1]){
-            current_file = linePart[1];
-            positions.push_back(pos);
-        }
-        pos = (long)fin.tellg();
-    }    
-
-    for (std::vector<long>::iterator i = positions.begin(); i != positions.end(); ++i){
-        fin.seekg(*i, ios::beg);
-        string l;
-        getline(fin, l);
-        cout<<"\nAt position, "<<*i<<" we have "<<l;
-    }
-*/
-
-
-
-
-
-
-
     if(0 != _load_emit_data(emit_file, emit_tokens)){
         cout<<"\nError: Could not load emit data from file: "<<emit_filename;
         return;

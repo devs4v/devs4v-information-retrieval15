@@ -1,0 +1,1 @@
+You need to download the datasets separately. They're huge and will require a lot of space which Github won't provide sadly.

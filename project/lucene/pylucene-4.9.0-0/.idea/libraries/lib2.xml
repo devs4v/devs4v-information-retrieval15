@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="lib2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/uima/lib/Tagger-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/uima/lib/WhitespaceTokenizer-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/uima/lib/uimaj-core-2.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

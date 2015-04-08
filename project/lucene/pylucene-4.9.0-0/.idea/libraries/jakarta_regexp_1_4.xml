@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jakarta-regexp-1.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene-java-4.9.0/lucene/sandbox/lib/jakarta-regexp-1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

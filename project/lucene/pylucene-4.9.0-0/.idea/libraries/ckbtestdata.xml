@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ckbtestdata">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/common/src/test/org/apache/lucene/analysis/ckb/ckbtestdata.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

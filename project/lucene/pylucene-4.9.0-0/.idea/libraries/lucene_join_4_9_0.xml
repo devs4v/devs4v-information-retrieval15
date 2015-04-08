@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lucene-join-4.9.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene-java-4.9.0/lucene/build/join/lucene-join-4.9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

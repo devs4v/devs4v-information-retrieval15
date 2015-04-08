@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="lucene">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-join-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-facet-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-expressions-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-analyzers-stempel-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-highlighter-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-queries-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/extensions.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-grouping-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-sandbox-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/antlr-runtime-3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/asm-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-memory-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-core-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-queryparser-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/asm-commons-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-misc-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-analyzers-common-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/lib.linux-x86_64-2.7/lucene/lucene-suggest-4.9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="lucene2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-queryparser-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-grouping-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-misc-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-suggest-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-join-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-sandbox-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-facet-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/antlr-runtime-3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-memory-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/extensions.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-queries-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-expressions-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-analyzers-stempel-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/asm-4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-analyzers-common-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-core-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/lucene-highlighter-4.9.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/build/test/lucene-4.9.0-py2.7-linux-x86_64.egg/lucene/asm-commons-4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

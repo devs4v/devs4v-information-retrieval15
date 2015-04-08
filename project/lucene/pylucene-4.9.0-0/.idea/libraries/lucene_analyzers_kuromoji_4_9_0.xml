@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lucene-analyzers-kuromoji-4.9.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lucene-java-4.9.0/lucene/build/analysis/kuromoji/lucene-analyzers-kuromoji-4.9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

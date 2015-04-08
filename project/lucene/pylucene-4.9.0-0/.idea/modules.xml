@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/benchmark/src/benchmark.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/benchmark/src/benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/classification/src/classification.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/classification/src/classification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/codecs/src/codecs.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/codecs/src/codecs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/common/src/common.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/common/src/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/core/src/core.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/core/src/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/demo/src/demo.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/demo/src/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/expressions/src/expressions.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/expressions/src/expressions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/facet/src/facet.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/facet/src/facet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/grouping/src/grouping.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/grouping/src/grouping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/highlighter/src/highlighter.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/highlighter/src/highlighter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/icu/src/icu.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/icu/src/icu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jcc/jcc.iml" filepath="$PROJECT_DIR$/jcc/jcc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/join/src/join.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/join/src/join.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/kuromoji/src/kuromoji.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/kuromoji/src/kuromoji.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/memory/src/memory.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/memory/src/memory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/misc/src/misc.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/misc/src/misc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/morfologik/src/morfologik.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/morfologik/src/morfologik.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/phonetic/src/phonetic.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/phonetic/src/phonetic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pylucene-4.9.0-0.iml" filepath="$PROJECT_DIR$/pylucene-4.9.0-0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/queries/src/queries.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/queries/src/queries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/queryparser/src/queryparser.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/queryparser/src/queryparser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/replicator/src/replicator.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/replicator/src/replicator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/sandbox/src/sandbox.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/sandbox/src/sandbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/smartcn/src/smartcn.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/smartcn/src/smartcn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/spatial/src/spatial.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/spatial/src/spatial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/stempel/src/stempel.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/stempel/src/stempel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/suggest/src/suggest.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/suggest/src/suggest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/test-framework/src/test-framework.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/test-framework/src/test-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/icu/src/tools/tools.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/icu/src/tools/tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/kuromoji/src/tools/tools1.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/kuromoji/src/tools/tools1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/tools/src/tools2.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/tools/src/tools2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/common/src/tools/tools3.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/common/src/tools/tools3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/uima/src/uima.iml" filepath="$PROJECT_DIR$/lucene-java-4.9.0/lucene/analysis/uima/src/uima.iml" />
+    </modules>
+  </component>
+</project>

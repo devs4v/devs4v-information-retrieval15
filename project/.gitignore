@@ -1,2 +1,4 @@
 datasets/*.sql
 datasets/*.tgz
+datasets/*.txt
+*.yml

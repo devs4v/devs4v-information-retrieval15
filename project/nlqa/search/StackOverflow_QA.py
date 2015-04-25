@@ -13,12 +13,13 @@ class StackOverflow_QA():
 	posts_cols = ['Id', 'PostTypeId', 'ParentId', 'AcceptedAnswerId', 'CreationDate', 'Body', 'OwnerUserId', 'Title', 'Tags', 'Topic',]
 	comments_cols = ['id', 'postid', 'score', 'text', 'date', 'userid', 'topic',]
 
-	posts_fields = ['id', 'title', 'content', 'tag', 'extra', 'comment',]
+	posts_fields = ['id', 'title', 'question', 'tag', 'extra', 'answer', 'comment',]
 
 	cols_to_fields = {
 						'id'		: 'Id',
 						'title'		: 'Title',
-						'content'	: 'Body',
+						'question'	: 'Body',
+						'answer'	: 'Body',
 						'comment'	: 'text',
 						'tag'		: 'Tags',
 						'extra'		: 'Topic',
@@ -89,7 +90,7 @@ class StackOverflow_QA():
 		fieldTypes = {
 						'id'		: storedField,
 						'title'		: indexedField,
-						'content'	: indexedField,
+						'question'	: indexedField,
 						'comment'	: indexedField,
 						'tag'		: indexedField,
 						'extra'		: indexedField,
@@ -152,6 +153,7 @@ class StackOverflow_QA():
 
 
 	def _tuples_to_dict(self, tuples, mapping):
+		''' Maps columns to fields '''
 		a = []
 		if tuples is not None and len(tuples[0]) != len(mapping):
 			raise Exception('FATAL Error: Invalid mapping from columns to fields')
@@ -162,3 +164,18 @@ class StackOverflow_QA():
 			a.append(d)
 
 		return a
+
+
+	def _cleanup_tag(content):
+		''' cleanup and remove tags and other unwanted tokens from the content '''
+		import re
+
+		blankie = " "
+		regex no_tag_regex("<.*>")
+		regex no_linefeed_tabs("[(\\n)|(\\t)]")
+		regex no_special_chars("[(\\/)|(:)|(;)|(\\)|(-)|(,)|(.)]")
+
+		result = regex_replace(doc, no_tag_regex, blankie)
+		result = regex_replace(result, no_linefeed_tabs, blankie)
+		result = regex_replace(result, no_special_chars, blankie)
+		return result

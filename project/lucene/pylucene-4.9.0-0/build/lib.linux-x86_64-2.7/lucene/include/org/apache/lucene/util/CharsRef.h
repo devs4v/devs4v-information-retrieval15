@@ -4,15 +4,15 @@
 #include "java/lang/Object.h"
 
 namespace java {
+  namespace lang {
+    class String;
+    class Comparable;
+    class Class;
+    class Cloneable;
+    class CharSequence;
+  }
   namespace util {
     class Comparator;
-  }
-  namespace lang {
-    class Comparable;
-    class CharSequence;
-    class String;
-    class Cloneable;
-    class Class;
   }
 }
 template<class T> class JArray;

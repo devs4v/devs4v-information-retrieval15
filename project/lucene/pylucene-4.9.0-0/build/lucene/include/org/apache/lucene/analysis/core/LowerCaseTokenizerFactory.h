@@ -11,8 +11,8 @@ namespace org {
       }
       namespace analysis {
         namespace util {
-          class AbstractAnalysisFactory;
           class MultiTermAwareComponent;
+          class AbstractAnalysisFactory;
         }
         namespace core {
           class LowerCaseTokenizer;
@@ -22,12 +22,12 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+  }
   namespace util {
     class Map;
-  }
-  namespace lang {
-    class String;
-    class Class;
   }
   namespace io {
     class Reader;

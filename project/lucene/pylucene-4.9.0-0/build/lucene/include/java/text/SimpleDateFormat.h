@@ -5,14 +5,14 @@
 
 namespace java {
   namespace util {
-    class Date;
     class Locale;
+    class Date;
   }
   namespace lang {
     class StringBuffer;
     class Object;
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

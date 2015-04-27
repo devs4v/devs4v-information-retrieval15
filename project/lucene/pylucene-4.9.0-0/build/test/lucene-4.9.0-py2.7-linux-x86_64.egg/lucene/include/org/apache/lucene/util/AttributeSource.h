@@ -7,19 +7,19 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace util {
-        class AttributeSource$State;
-        class AttributeFactory;
         class Attribute;
-        class AttributeReflector;
+        class AttributeFactory;
         class AttributeImpl;
+        class AttributeReflector;
+        class AttributeSource$State;
       }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace util {
     class Iterator;

@@ -4,13 +4,13 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace lang {
-    class String;
-    class Class;
-  }
   namespace util {
     class Locale;
     class Set;
+  }
+  namespace lang {
+    class Class;
+    class String;
   }
   namespace io {
     class Serializable;

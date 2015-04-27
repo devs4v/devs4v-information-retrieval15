@@ -25,10 +25,10 @@ namespace org {
             mid_getOffsetGap_5fdc3f57,
             mid_getPositionIncrementGap_5fdc3f57,
             mid_initReader_d8fb1c81,
-            mid_getWrappedAnalyzer_29a2299f,
             mid_wrapComponents_46d74455,
-            mid_wrapReader_d8fb1c81,
             mid_createComponents_1be39cae,
+            mid_getWrappedAnalyzer_29a2299f,
+            mid_wrapReader_d8fb1c81,
             max_mid
           };
 

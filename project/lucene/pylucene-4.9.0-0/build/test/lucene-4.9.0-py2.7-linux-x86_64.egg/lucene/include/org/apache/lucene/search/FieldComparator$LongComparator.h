@@ -18,9 +18,9 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
-    class Long;
     class Class;
+    class Long;
+    class String;
   }
   namespace io {
     class IOException;

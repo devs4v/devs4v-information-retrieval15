@@ -13,15 +13,15 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class ClassLoader;
+    class Class;
+    class Iterable;
+    class String;
+  }
   namespace util {
     class Set;
     class Iterator;
-  }
-  namespace lang {
-    class ClassLoader;
-    class String;
-    class Iterable;
-    class Class;
   }
 }
 template<class T> class JArray;

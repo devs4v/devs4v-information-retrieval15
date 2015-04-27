@@ -9,9 +9,9 @@ namespace java {
     class Set;
   }
   namespace lang {
-    class String;
-    class Cloneable;
     class Class;
+    class Cloneable;
+    class String;
   }
   namespace io {
     class IOException;

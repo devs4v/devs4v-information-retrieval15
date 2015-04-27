@@ -7,9 +7,9 @@ namespace java {
   namespace lang {
     class StringBuffer;
     class Appendable;
-    class CharSequence;
     class String;
     class Class;
+    class CharSequence;
   }
 }
 template<class T> class JArray;

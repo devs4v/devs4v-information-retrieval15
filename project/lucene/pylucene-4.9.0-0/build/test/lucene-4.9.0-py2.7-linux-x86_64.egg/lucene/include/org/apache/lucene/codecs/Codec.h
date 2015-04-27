@@ -28,8 +28,8 @@ namespace java {
   }
   namespace lang {
     class ClassLoader;
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

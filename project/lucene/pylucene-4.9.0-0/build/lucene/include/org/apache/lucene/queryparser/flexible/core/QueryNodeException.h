@@ -18,13 +18,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace lang {
-    class Throwable;
-    class String;
-    class Class;
-  }
   namespace util {
     class Locale;
+  }
+  namespace lang {
+    class Throwable;
+    class Class;
+    class String;
   }
 }
 template<class T> class JArray;

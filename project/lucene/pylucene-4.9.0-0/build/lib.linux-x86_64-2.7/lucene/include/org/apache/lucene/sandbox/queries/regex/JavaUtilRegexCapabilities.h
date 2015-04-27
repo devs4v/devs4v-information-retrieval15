@@ -9,8 +9,8 @@ namespace org {
       namespace sandbox {
         namespace queries {
           namespace regex {
-            class RegexCapabilities$RegexMatcher;
             class RegexCapabilities;
+            class RegexCapabilities$RegexMatcher;
           }
         }
       }

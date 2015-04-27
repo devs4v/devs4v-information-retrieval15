@@ -4,15 +4,15 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace util {
-    class Collection;
-    class Comparator;
-  }
   namespace lang {
     class NumberFormatException;
     class Integer;
     class Comparable;
     class Class;
+  }
+  namespace util {
+    class Collection;
+    class Comparator;
   }
 }
 template<class T> class JArray;

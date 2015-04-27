@@ -5,17 +5,17 @@
 
 namespace java {
   namespace util {
-    class Date;
-    class Map;
     class Locale;
     class TimeZone;
+    class Date;
+    class Map;
   }
   namespace lang {
     class Integer;
     class Comparable;
-    class String;
-    class Cloneable;
     class Class;
+    class Cloneable;
+    class String;
   }
   namespace io {
     class Serializable;

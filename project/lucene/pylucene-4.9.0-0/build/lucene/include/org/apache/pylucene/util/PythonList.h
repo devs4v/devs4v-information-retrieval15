@@ -4,17 +4,17 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace lang {
-    class Throwable;
-    class IllegalArgumentException;
-    class Class;
-    class IndexOutOfBoundsException;
-  }
   namespace util {
     class ListIterator;
     class List;
     class Iterator;
     class Collection;
+  }
+  namespace lang {
+    class Throwable;
+    class IllegalArgumentException;
+    class Class;
+    class IndexOutOfBoundsException;
   }
 }
 template<class T> class JArray;

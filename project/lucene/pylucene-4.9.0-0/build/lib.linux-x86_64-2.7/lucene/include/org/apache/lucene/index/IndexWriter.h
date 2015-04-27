@@ -7,13 +7,13 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class IndexWriterConfig;
+        class Term;
         class IndexReader;
         class TwoPhaseCommit;
         class DirectoryReader;
+        class IndexWriterConfig;
         class SegmentCommitInfo;
         class IndexableField;
-        class Term;
         class LiveIndexWriterConfig;
         class MergePolicy$OneMerge;
       }
@@ -38,9 +38,9 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
-    class Iterable;
     class Class;
+    class Iterable;
+    class String;
   }
   namespace util {
     class Map;
@@ -116,8 +116,8 @@ namespace org {
             mid_updateNumericDocValue_3866ef1c,
             mid_waitForMerges_54c6a166,
             mid_flush_46f2e2c4,
-            mid_ensureOpen_54c6a166,
             mid_ensureOpen_bb0c767f,
+            mid_ensureOpen_54c6a166,
             mid_doAfterFlush_54c6a166,
             mid_doBeforeFlush_54c6a166,
             max_mid

@@ -7,8 +7,8 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class SegmentReadState;
         class SegmentWriteState;
+        class SegmentReadState;
       }
       namespace codecs {
         class FieldsProducer;
@@ -19,8 +19,8 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

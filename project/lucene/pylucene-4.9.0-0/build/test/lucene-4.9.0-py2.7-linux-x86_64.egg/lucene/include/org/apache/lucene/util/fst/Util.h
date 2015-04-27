@@ -11,8 +11,8 @@ namespace org {
         class IntsRef;
         namespace fst {
           class FST$Arc;
-          class FST$BytesReader;
           class FST;
+          class FST$BytesReader;
           class Util$TopResults;
         }
       }
@@ -20,13 +20,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Comparator;
-  }
   namespace lang {
     class Class;
     class Long;
     class CharSequence;
+  }
+  namespace util {
+    class Comparator;
   }
   namespace io {
     class Writer;

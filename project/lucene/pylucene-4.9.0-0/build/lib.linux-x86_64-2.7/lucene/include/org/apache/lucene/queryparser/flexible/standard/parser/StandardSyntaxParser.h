@@ -23,8 +23,8 @@ namespace org {
               class StandardSyntaxParserConstants;
               class Token;
               class StandardSyntaxParserTokenManager;
-              class CharStream;
               class ParseException;
+              class CharStream;
             }
           }
         }

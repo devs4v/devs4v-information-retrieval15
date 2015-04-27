@@ -18,8 +18,8 @@ namespace java {
   }
   namespace io {
     class IOException;
-    class DataInput;
     class DataOutput;
+    class DataInput;
   }
 }
 template<class T> class JArray;

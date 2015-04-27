@@ -22,13 +22,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class List;
-  }
   namespace lang {
+    class Class;
     class InterruptedException;
     class String;
-    class Class;
+  }
+  namespace util {
+    class List;
   }
   namespace io {
     class IOException;

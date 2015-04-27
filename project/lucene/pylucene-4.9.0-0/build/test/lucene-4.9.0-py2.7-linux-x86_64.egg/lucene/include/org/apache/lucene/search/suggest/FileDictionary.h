@@ -19,12 +19,12 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
-    class InputStream;
     class Reader;
+    class InputStream;
   }
 }
 template<class T> class JArray;

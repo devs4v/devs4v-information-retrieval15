@@ -8,18 +8,18 @@ namespace org {
     namespace lucene {
       namespace store {
         class IndexOutput;
-        class IndexInput;
-        class ChecksumIndexInput;
         class DataInput;
+        class IndexInput;
         class DataOutput;
+        class ChecksumIndexInput;
       }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

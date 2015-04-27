@@ -13,12 +13,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Comparator;
-  }
   namespace lang {
     class String;
     class Class;
+  }
+  namespace util {
+    class Comparator;
   }
 }
 template<class T> class JArray;

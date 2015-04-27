@@ -9,20 +9,20 @@ namespace org {
       namespace store {
         class IndexOutput;
         class Lock;
-        class IndexInput;
-        class IOContext;
         class LockFactory;
+        class IOContext;
+        class IndexInput;
       }
     }
   }
 }
 namespace java {
-  namespace util {
-    class Collection;
-  }
   namespace lang {
     class String;
     class Class;
+  }
+  namespace util {
+    class Collection;
   }
   namespace io {
     class IOException;

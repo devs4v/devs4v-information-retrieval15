@@ -14,9 +14,9 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
-    class Iterable;
     class Class;
+    class Iterable;
+    class String;
   }
   namespace util {
     class Iterator;

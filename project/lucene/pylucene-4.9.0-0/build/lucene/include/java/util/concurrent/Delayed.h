@@ -4,13 +4,13 @@
 #include "java/lang/Comparable.h"
 
 namespace java {
-  namespace lang {
-    class Class;
-  }
   namespace util {
     namespace concurrent {
       class TimeUnit;
     }
+  }
+  namespace lang {
+    class Class;
   }
 }
 template<class T> class JArray;

@@ -4,12 +4,12 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace util {
-    class Iterator;
-  }
   namespace lang {
     class ClassLoader;
     class Class;
+  }
+  namespace util {
+    class Iterator;
   }
 }
 template<class T> class JArray;

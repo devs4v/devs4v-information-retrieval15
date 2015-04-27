@@ -8,14 +8,14 @@ namespace java {
     class Map$Entry;
     class Map;
     class Set;
-    class Enumeration;
     class Collection;
+    class Enumeration;
   }
   namespace lang {
     class Object;
-    class String;
-    class Cloneable;
     class Class;
+    class Cloneable;
+    class String;
   }
   namespace io {
     class Serializable;

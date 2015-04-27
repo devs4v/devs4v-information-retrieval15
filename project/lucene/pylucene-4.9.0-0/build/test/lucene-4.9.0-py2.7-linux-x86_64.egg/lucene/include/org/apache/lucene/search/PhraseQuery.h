@@ -18,13 +18,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Set;
-  }
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
+  }
+  namespace util {
+    class Set;
   }
   namespace io {
     class IOException;

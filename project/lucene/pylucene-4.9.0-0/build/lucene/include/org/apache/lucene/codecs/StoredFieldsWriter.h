@@ -7,9 +7,9 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
+        class MergeState;
         class FieldInfo;
         class IndexableField;
-        class MergeState;
         class FieldInfos;
       }
     }

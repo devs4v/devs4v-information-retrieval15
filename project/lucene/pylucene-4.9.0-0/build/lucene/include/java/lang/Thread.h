@@ -5,16 +5,16 @@
 
 namespace java {
   namespace lang {
+    class ThreadGroup;
     class Runnable;
     class String;
     class Thread$State;
-    class ThreadGroup;
+    class ClassLoader;
     class Thread$UncaughtExceptionHandler;
     class InterruptedException;
-    class Class;
     class StackTraceElement;
     class Throwable;
-    class ClassLoader;
+    class Class;
   }
   namespace util {
     class Map;

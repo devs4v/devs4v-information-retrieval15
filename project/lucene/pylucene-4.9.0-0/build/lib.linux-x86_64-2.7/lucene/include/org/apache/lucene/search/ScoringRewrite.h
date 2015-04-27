@@ -10,9 +10,9 @@ namespace org {
         class IndexReader;
       }
       namespace search {
-        class BooleanQuery;
         class Query;
         class MultiTermQuery$RewriteMethod;
+        class BooleanQuery;
         class MultiTermQuery;
       }
     }

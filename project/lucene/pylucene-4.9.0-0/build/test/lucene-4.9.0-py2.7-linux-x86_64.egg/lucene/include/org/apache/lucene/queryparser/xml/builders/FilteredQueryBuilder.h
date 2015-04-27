@@ -6,14 +6,14 @@
 namespace org {
   namespace apache {
     namespace lucene {
+      namespace search {
+        class Query;
+      }
       namespace queryparser {
         namespace xml {
           class FilterBuilder;
           class QueryBuilder;
         }
-      }
-      namespace search {
-        class Query;
       }
     }
   }

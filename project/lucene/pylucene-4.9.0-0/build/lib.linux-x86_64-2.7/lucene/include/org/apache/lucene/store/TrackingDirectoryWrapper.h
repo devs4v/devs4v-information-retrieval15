@@ -7,20 +7,20 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace store {
-        class Directory;
         class IndexOutput;
+        class Directory;
         class IOContext;
       }
     }
   }
 }
 namespace java {
+  namespace util {
+    class Set;
+  }
   namespace lang {
     class String;
     class Class;
-  }
-  namespace util {
-    class Set;
   }
   namespace io {
     class IOException;

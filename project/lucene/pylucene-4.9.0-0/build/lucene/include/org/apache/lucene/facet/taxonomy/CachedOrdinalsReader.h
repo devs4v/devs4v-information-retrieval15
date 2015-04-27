@@ -9,21 +9,21 @@ namespace org {
       namespace util {
         class Accountable;
       }
-      namespace index {
-        class AtomicReaderContext;
-      }
       namespace facet {
         namespace taxonomy {
           class OrdinalsReader$OrdinalsSegmentReader;
         }
+      }
+      namespace index {
+        class AtomicReaderContext;
       }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

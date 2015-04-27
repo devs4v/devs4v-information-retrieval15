@@ -6,9 +6,9 @@
 namespace java {
   namespace lang {
     class StringBuffer;
-    class String;
-    class Cloneable;
     class Class;
+    class Cloneable;
+    class String;
   }
   namespace io {
     class Serializable;

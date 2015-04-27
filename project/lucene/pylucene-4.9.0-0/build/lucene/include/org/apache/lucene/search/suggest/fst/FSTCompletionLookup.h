@@ -19,8 +19,8 @@ namespace org {
         }
       }
       namespace store {
-        class DataInput;
         class DataOutput;
+        class DataInput;
       }
     }
   }

@@ -4,14 +4,14 @@
 #include "java/util/AbstractList.h"
 
 namespace java {
-  namespace lang {
-    class Object;
-    class Class;
-  }
   namespace util {
     class ListIterator;
     class Iterator;
     class Collection;
+  }
+  namespace lang {
+    class Object;
+    class Class;
   }
 }
 template<class T> class JArray;

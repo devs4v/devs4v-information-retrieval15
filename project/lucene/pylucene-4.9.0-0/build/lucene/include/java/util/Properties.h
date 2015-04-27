@@ -4,22 +4,22 @@
 #include "java/util/Hashtable.h"
 
 namespace java {
-  namespace lang {
-    class Object;
-    class String;
-    class Class;
-  }
   namespace util {
     class Set;
-    class Enumeration;
     class InvalidPropertiesFormatException;
+    class Enumeration;
+  }
+  namespace lang {
+    class Object;
+    class Class;
+    class String;
   }
   namespace io {
-    class PrintWriter;
+    class OutputStream;
     class PrintStream;
     class Writer;
     class InputStream;
-    class OutputStream;
+    class PrintWriter;
     class IOException;
     class Reader;
   }

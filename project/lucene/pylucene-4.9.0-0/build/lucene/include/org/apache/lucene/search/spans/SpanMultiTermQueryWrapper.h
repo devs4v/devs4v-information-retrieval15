@@ -10,9 +10,9 @@ namespace org {
         class Bits;
       }
       namespace index {
-        class TermContext;
-        class Term;
         class AtomicReaderContext;
+        class Term;
+        class TermContext;
         class IndexReader;
       }
       namespace search {
@@ -27,13 +27,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Map;
-  }
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
+  }
+  namespace util {
+    class Map;
   }
   namespace io {
     class IOException;

@@ -18,8 +18,8 @@ namespace java {
     class Collection;
   }
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

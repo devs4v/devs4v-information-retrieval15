@@ -16,13 +16,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Map;
-    class HashMap;
-  }
   namespace lang {
     class Object;
     class Class;
+  }
+  namespace util {
+    class Map;
+    class HashMap;
   }
   namespace io {
     class IOException;

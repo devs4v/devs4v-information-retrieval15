@@ -7,8 +7,8 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class FieldInfo;
         class MergeState;
+        class FieldInfo;
         class Fields;
       }
       namespace codecs {

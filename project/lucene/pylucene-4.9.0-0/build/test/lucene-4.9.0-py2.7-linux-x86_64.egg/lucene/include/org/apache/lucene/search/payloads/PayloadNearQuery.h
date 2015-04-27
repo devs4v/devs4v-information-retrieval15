@@ -11,10 +11,10 @@ namespace org {
         namespace spans {
           class SpanQuery;
         }
-        class Weight;
         namespace payloads {
           class PayloadFunction;
         }
+        class Weight;
       }
     }
   }
@@ -22,8 +22,8 @@ namespace org {
 namespace java {
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

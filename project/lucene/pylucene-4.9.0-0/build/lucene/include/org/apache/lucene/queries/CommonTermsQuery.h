@@ -7,9 +7,9 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class TermContext;
-        class Term;
         class AtomicReaderContext;
+        class Term;
+        class TermContext;
         class IndexReader;
       }
       namespace search {
@@ -25,8 +25,8 @@ namespace java {
   }
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

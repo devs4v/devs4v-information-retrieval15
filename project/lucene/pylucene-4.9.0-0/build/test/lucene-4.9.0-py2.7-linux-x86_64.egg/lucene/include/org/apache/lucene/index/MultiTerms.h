@@ -20,11 +20,11 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Comparator;
-  }
   namespace lang {
     class Class;
+  }
+  namespace util {
+    class Comparator;
   }
   namespace io {
     class IOException;

@@ -6,9 +6,9 @@
 namespace java {
   namespace lang {
     class StringBuffer;
-    class CharSequence;
-    class String;
     class Class;
+    class String;
+    class CharSequence;
   }
   namespace util {
     namespace regex {

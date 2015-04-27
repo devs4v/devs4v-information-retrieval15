@@ -19,9 +19,9 @@ namespace org {
       }
       namespace search {
         class Sort;
-        class IndexSearcher;
-        class Collector;
         class Filter;
+        class Collector;
+        class IndexSearcher;
         class ScoreDoc;
         class FieldDoc;
       }

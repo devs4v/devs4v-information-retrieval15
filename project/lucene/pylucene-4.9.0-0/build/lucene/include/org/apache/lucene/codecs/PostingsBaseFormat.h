@@ -7,20 +7,20 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class SegmentReadState;
         class SegmentWriteState;
+        class SegmentReadState;
       }
       namespace codecs {
-        class PostingsWriterBase;
         class PostingsReaderBase;
+        class PostingsWriterBase;
       }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

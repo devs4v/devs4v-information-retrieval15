@@ -7,8 +7,8 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class FilterDirectoryReader$SubReaderWrapper;
         class IndexCommit;
+        class FilterDirectoryReader$SubReaderWrapper;
         class AtomicReader;
       }
     }
@@ -38,10 +38,10 @@ namespace org {
             mid_getVersion_54c6a17a,
             mid_isCurrent_54c6a16a,
             mid_doClose_54c6a166,
-            mid_doOpenIfChanged_26fd6272,
-            mid_doOpenIfChanged_e4ee522b,
-            mid_doOpenIfChanged_1de06693,
             mid_doWrapDirectoryReader_5bb3c60f,
+            mid_doOpenIfChanged_26fd6272,
+            mid_doOpenIfChanged_1de06693,
+            mid_doOpenIfChanged_e4ee522b,
             max_mid
           };
 

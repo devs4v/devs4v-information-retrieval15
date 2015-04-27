@@ -10,8 +10,8 @@ namespace org {
         class Accountable;
       }
       namespace store {
-        class DataOutput;
         class RAMFile;
+        class DataOutput;
       }
     }
   }

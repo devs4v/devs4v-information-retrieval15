@@ -15,13 +15,13 @@ namespace org {
   }
 }
 namespace java {
+  namespace util {
+    class Set;
+  }
   namespace lang {
     class StringBuilder;
     class Character;
     class Class;
-  }
-  namespace util {
-    class Set;
   }
 }
 template<class T> class JArray;

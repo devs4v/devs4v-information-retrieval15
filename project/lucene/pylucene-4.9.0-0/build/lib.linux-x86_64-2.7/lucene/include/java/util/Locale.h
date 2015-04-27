@@ -4,16 +4,16 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace lang {
-    class Character;
-    class String;
-    class Cloneable;
-    class Class;
-  }
   namespace util {
     class Locale$Category;
     class Set;
     class MissingResourceException;
+  }
+  namespace lang {
+    class Character;
+    class Class;
+    class Cloneable;
+    class String;
   }
   namespace io {
     class Serializable;

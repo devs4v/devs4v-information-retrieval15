@@ -6,8 +6,8 @@
 namespace java {
   namespace lang {
     class Comparable;
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class Serializable;

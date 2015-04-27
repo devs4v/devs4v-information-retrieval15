@@ -51,8 +51,8 @@ namespace org {
               mid_weight_54c6a17a,
               mid_decode_b368866d,
               mid_encode_f3a12df5,
-              mid_decodePayload_62b5ed46,
               mid_decodeContexts_8a3417ec,
+              mid_decodePayload_62b5ed46,
               max_mid
             };
 

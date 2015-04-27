@@ -15,13 +15,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Collection;
-  }
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
+  }
+  namespace util {
+    class Collection;
   }
 }
 template<class T> class JArray;

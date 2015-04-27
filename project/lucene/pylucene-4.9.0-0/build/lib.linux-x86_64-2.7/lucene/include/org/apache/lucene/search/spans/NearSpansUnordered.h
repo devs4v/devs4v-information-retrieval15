@@ -23,13 +23,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Map;
-    class Collection;
-  }
   namespace lang {
     class Class;
     class String;
+  }
+  namespace util {
+    class Map;
+    class Collection;
   }
   namespace io {
     class IOException;

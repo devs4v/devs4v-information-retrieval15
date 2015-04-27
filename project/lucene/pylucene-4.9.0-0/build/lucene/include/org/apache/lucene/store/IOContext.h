@@ -7,17 +7,17 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace store {
-        class MergeInfo;
-        class FlushInfo;
         class IOContext$Context;
+        class FlushInfo;
+        class MergeInfo;
       }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

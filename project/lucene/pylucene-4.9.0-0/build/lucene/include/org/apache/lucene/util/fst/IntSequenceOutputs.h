@@ -10,16 +10,16 @@ namespace org {
         class IntsRef;
       }
       namespace store {
-        class DataInput;
         class DataOutput;
+        class DataInput;
       }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

@@ -11,10 +11,10 @@ namespace org {
       }
       namespace index {
         class SegmentInfo;
-        class FieldInfo;
+        class FieldInfos;
         class DocsEnum;
         class DocsAndPositionsEnum;
-        class FieldInfos;
+        class FieldInfo;
       }
       namespace store {
         class Directory;

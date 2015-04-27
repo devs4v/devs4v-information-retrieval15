@@ -23,10 +23,10 @@ namespace org {
 }
 namespace java {
   namespace lang {
+    class String;
+    class Number;
     class Class;
     class CharSequence;
-    class Number;
-    class String;
   }
   namespace text {
     class NumberFormat;

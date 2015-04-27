@@ -32,8 +32,8 @@ namespace org {
               mid_init$_e882998a,
               mid_init$_79b44903,
               mid_toString_14c7b5c5,
-              mid_getWrappedAnalyzer_29a2299f,
               mid_wrapComponents_46d74455,
+              mid_getWrappedAnalyzer_29a2299f,
               max_mid
             };
 

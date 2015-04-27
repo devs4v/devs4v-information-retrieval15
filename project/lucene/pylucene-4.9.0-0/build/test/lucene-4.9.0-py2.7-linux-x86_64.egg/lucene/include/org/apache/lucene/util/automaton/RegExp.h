@@ -22,8 +22,8 @@ namespace java {
   }
   namespace lang {
     class IllegalArgumentException;
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

@@ -8,23 +8,23 @@ namespace org {
     namespace lucene {
       namespace search {
         namespace vectorhighlight {
-          class FieldTermStack$TermInfo;
           class FieldPhraseList$WeightedPhraseInfo$Toffs;
+          class FieldTermStack$TermInfo;
         }
       }
     }
   }
 }
 namespace java {
-  namespace util {
-    class List;
-    class LinkedList;
-    class Collection;
-  }
   namespace lang {
     class Comparable;
     class Class;
     class String;
+  }
+  namespace util {
+    class List;
+    class LinkedList;
+    class Collection;
   }
 }
 template<class T> class JArray;

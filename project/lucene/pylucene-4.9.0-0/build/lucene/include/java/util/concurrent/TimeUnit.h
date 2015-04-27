@@ -5,9 +5,9 @@
 
 namespace java {
   namespace lang {
-    class InterruptedException;
-    class Object;
     class String;
+    class Object;
+    class InterruptedException;
     class Thread;
     class Class;
   }

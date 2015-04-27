@@ -15,15 +15,15 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Comparable;
+    class Class;
+    class Iterable;
+    class String;
+  }
   namespace util {
     class Collection;
     class Comparator;
-  }
-  namespace lang {
-    class Comparable;
-    class String;
-    class Iterable;
-    class Class;
   }
 }
 template<class T> class JArray;

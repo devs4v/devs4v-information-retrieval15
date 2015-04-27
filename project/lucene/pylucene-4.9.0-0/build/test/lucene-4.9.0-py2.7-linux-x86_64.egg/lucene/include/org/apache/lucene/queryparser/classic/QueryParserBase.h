@@ -35,13 +35,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace lang {
-    class String;
-    class Class;
-  }
   namespace util {
     class Locale;
     class TimeZone;
+  }
+  namespace lang {
+    class Class;
+    class String;
   }
 }
 template<class T> class JArray;
@@ -93,8 +93,8 @@ namespace org {
               mid_getFuzzyQuery_45995161,
               mid_getWildcardQuery_38d6e77e,
               mid_addClause_fea8e09e,
-              mid_getBooleanQuery_bdd36d85,
               mid_getBooleanQuery_3d190f1c,
+              mid_getBooleanQuery_bdd36d85,
               mid_newFieldQuery_1840ef4b,
               mid_newBooleanClause_e4ef4efe,
               mid_newPrefixQuery_c8bbbdc7,

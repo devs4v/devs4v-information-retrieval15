@@ -24,13 +24,13 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+  }
   namespace util {
     class ArrayList;
     class List;
-  }
-  namespace lang {
-    class String;
-    class Class;
   }
 }
 template<class T> class JArray;
@@ -72,16 +72,16 @@ namespace org {
                 mid_parse2_eb9ff21c,
                 mid_getPrefixQuery_484af57f,
                 mid_getOpDistance_5fdc3f57,
-                mid_getFieldsQuery_4e036592,
                 mid_getOrQuery_685e421b,
+                mid_allowedTruncation_5fdc3f44,
+                mid_getTruncQuery_eb9ff21c,
+                mid_getFieldsQuery_4e036592,
                 mid_getAndQuery_685e421b,
                 mid_getNotQuery_3a2a55ec,
                 mid_checkDistanceSubQueries_657c42bd,
                 mid_getDistanceQuery_b401ccf2,
                 mid_getTermQuery_484af57f,
                 mid_allowedSuffix_5fdc3f44,
-                mid_allowedTruncation_5fdc3f44,
-                mid_getTruncQuery_eb9ff21c,
                 max_mid
               };
 

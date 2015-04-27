@@ -10,8 +10,8 @@ namespace java {
   }
   namespace lang {
     class ClassLoader;
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class Reader;

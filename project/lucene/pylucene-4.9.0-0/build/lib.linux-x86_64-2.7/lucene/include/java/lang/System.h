@@ -4,14 +4,14 @@
 #include "java/lang/Object.h"
 
 namespace java {
+  namespace lang {
+    class SecurityManager;
+    class Class;
+    class String;
+  }
   namespace util {
     class Map;
     class Properties;
-  }
-  namespace lang {
-    class SecurityManager;
-    class String;
-    class Class;
   }
   namespace io {
     class Console;

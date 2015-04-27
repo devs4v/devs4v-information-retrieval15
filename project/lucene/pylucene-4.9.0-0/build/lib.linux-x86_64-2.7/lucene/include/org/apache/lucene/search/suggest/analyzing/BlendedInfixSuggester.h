@@ -18,11 +18,11 @@ namespace org {
           }
         }
       }
-      namespace store {
-        class Directory;
-      }
       namespace analysis {
         class Analyzer;
+      }
+      namespace store {
+        class Directory;
       }
     }
   }

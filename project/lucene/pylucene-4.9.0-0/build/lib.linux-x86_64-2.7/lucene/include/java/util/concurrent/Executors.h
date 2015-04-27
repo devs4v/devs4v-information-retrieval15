@@ -4,17 +4,17 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace lang {
-    class Runnable;
-    class Class;
-  }
   namespace util {
     namespace concurrent {
       class Callable;
       class ExecutorService;
-      class ThreadFactory;
       class ScheduledExecutorService;
+      class ThreadFactory;
     }
+  }
+  namespace lang {
+    class Runnable;
+    class Class;
   }
 }
 template<class T> class JArray;

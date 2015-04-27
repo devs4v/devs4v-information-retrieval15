@@ -35,6 +35,11 @@ namespace org {
   }
 }
 namespace java {
+  namespace util {
+    class Locale;
+    class TimeZone;
+    class Map;
+  }
   namespace lang {
     class String;
     class Float;
@@ -42,11 +47,6 @@ namespace java {
     class CharSequence;
     class Integer;
     class Class;
-  }
-  namespace util {
-    class Locale;
-    class Map;
-    class TimeZone;
   }
 }
 template<class T> class JArray;

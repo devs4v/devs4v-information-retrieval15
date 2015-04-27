@@ -8,8 +8,8 @@ namespace org {
     namespace lucene {
       namespace index {
         class IndexCommit;
-        class IndexWriter;
         class AtomicReader;
+        class IndexWriter;
       }
       namespace store {
         class Directory;
@@ -18,11 +18,11 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class List;
-  }
   namespace lang {
     class Class;
+  }
+  namespace util {
+    class List;
   }
   namespace io {
     class IOException;

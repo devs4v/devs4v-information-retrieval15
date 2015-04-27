@@ -11,8 +11,8 @@ namespace org {
         class IndexReader;
       }
       namespace search {
-        class Filter;
         class IndexSearcher;
+        class Filter;
         class FilteredQuery$FilterStrategy;
         class Weight;
       }
@@ -22,8 +22,8 @@ namespace org {
 namespace java {
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
   }
   namespace util {
     class Set;

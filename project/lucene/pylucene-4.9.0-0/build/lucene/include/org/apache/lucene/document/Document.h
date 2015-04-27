@@ -16,14 +16,14 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class List;
-    class Iterator;
-  }
   namespace lang {
     class String;
     class Iterable;
     class Class;
+  }
+  namespace util {
+    class List;
+    class Iterator;
   }
 }
 template<class T> class JArray;

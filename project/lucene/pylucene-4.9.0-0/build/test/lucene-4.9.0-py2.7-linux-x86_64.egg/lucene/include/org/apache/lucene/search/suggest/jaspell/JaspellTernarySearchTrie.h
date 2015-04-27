@@ -18,10 +18,10 @@ namespace java {
     class List;
   }
   namespace lang {
-    class CharSequence;
-    class Float;
     class String;
+    class Float;
     class Class;
+    class CharSequence;
   }
   namespace io {
     class IOException;

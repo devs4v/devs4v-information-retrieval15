@@ -7,8 +7,8 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class DocsEnum;
         class ReaderSlice;
+        class DocsEnum;
       }
     }
   }

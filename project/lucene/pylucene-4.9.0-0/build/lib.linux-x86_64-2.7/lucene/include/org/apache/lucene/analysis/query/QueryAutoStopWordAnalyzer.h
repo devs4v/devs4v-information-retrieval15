@@ -49,8 +49,8 @@ namespace org {
               mid_init$_2db3c3ea,
               mid_getStopWords_2b86e588,
               mid_getStopWords_1f6a174f,
-              mid_getWrappedAnalyzer_29a2299f,
               mid_wrapComponents_46d74455,
+              mid_getWrappedAnalyzer_29a2299f,
               max_mid
             };
 

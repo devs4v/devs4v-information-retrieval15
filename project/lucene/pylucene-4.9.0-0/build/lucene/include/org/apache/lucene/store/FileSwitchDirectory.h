@@ -7,8 +7,8 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace store {
-        class Directory;
         class IndexOutput;
+        class Directory;
         class IndexInput;
         class IOContext;
       }
@@ -21,8 +21,8 @@ namespace java {
     class Collection;
   }
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

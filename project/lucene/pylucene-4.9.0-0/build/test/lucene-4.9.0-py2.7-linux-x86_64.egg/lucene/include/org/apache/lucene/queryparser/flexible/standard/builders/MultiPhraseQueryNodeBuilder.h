@@ -6,6 +6,9 @@
 namespace org {
   namespace apache {
     namespace lucene {
+      namespace search {
+        class MultiPhraseQuery;
+      }
       namespace queryparser {
         namespace flexible {
           namespace core {
@@ -20,9 +23,6 @@ namespace org {
             }
           }
         }
-      }
-      namespace search {
-        class MultiPhraseQuery;
       }
     }
   }

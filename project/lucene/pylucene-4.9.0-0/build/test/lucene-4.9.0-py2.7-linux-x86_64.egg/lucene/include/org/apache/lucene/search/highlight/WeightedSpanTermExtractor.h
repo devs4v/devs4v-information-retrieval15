@@ -22,12 +22,12 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+  }
   namespace util {
     class Map;
-  }
-  namespace lang {
-    class String;
-    class Class;
   }
   namespace io {
     class IOException;
@@ -59,10 +59,10 @@ namespace org {
               mid_extractWeightedSpanTerms_66aae95d,
               mid_mustRewriteQuery_056c189b,
               mid_extractWeightedTerms_f386227d,
-              mid_collectSpanQueryFields_33bf20d1,
-              mid_setMaxDocCharsToAnalyze_39c7bd3c,
               mid_fieldNameComparator_5fdc3f44,
               mid_getLeafContext_c2ef2576,
+              mid_collectSpanQueryFields_33bf20d1,
+              mid_setMaxDocCharsToAnalyze_39c7bd3c,
               max_mid
             };
 

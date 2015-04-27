@@ -11,8 +11,8 @@ namespace org {
       }
       namespace search {
         class DocIdSet;
-        class Weight;
         class Scorer;
+        class Weight;
       }
     }
   }

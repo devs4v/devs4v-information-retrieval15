@@ -4,12 +4,6 @@
 #include "java/util/concurrent/Executor.h"
 
 namespace java {
-  namespace lang {
-    class Object;
-    class Runnable;
-    class Class;
-    class InterruptedException;
-  }
   namespace util {
     namespace concurrent {
       class Callable;
@@ -20,6 +14,12 @@ namespace java {
     }
     class List;
     class Collection;
+  }
+  namespace lang {
+    class Runnable;
+    class Object;
+    class InterruptedException;
+    class Class;
   }
 }
 template<class T> class JArray;

@@ -15,13 +15,13 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class Cloneable;
+    class String;
+  }
   namespace util {
     class Comparator;
-  }
-  namespace lang {
-    class String;
-    class Cloneable;
-    class Class;
   }
 }
 template<class T> class JArray;

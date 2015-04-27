@@ -90,7 +90,7 @@ LUCENE=$(LUCENE_SRC)/lucene
 # Linux     (Ubuntu 11.10 64-bit, Python 2.7.2, OpenJDK 1.7, setuptools 0.6.16)
 # Be sure to also set JDK['linux2'] in jcc's setup.py to the JAVA_HOME value
 # used below for ANT (and rebuild jcc after changing it).
-PREFIX_PYTHON=/usr
+PREFIX_PYTHON=/home/shivam/projects/devs4v-information-retrieval15/project/venv
 ANT=JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 /usr/bin/ant
 PYTHON=$(PREFIX_PYTHON)/bin/python
 JCC=$(PYTHON) -m jcc --shared

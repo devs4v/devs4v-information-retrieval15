@@ -10,9 +10,9 @@ namespace java {
   }
   namespace io {
     class IOException;
-    class DataInput;
-    class PrintStream;
     class DataOutput;
+    class PrintStream;
+    class DataInput;
   }
 }
 template<class T> class JArray;

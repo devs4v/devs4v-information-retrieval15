@@ -14,13 +14,13 @@ namespace org {
         class FieldInvertState;
       }
       namespace search {
-        namespace similarities {
-          class Similarity$SimWeight;
-          class Similarity$SimScorer;
-        }
-        class Explanation;
         class TermStatistics;
+        class Explanation;
         class CollectionStatistics;
+        namespace similarities {
+          class Similarity$SimScorer;
+          class Similarity$SimWeight;
+        }
       }
     }
   }

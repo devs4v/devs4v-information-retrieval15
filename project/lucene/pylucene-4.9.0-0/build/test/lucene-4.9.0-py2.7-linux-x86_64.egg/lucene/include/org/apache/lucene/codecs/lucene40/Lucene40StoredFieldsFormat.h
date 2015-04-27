@@ -15,8 +15,8 @@ namespace org {
         class IOContext;
       }
       namespace codecs {
-        class StoredFieldsWriter;
         class StoredFieldsReader;
+        class StoredFieldsWriter;
       }
     }
   }

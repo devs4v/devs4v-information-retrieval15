@@ -10,8 +10,8 @@ namespace org {
         class BytesRef;
       }
       namespace index {
-        class FieldInfo;
         class MergeState;
+        class FieldInfo;
         class FieldInfos;
       }
       namespace store {
@@ -23,12 +23,12 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class String;
+    class Class;
+  }
   namespace util {
     class Comparator;
-  }
-  namespace lang {
-    class Class;
-    class String;
   }
   namespace io {
     class IOException;

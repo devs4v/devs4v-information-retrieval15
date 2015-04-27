@@ -15,8 +15,8 @@ namespace org {
 namespace java {
   namespace lang {
     class Throwable;
-    class Class;
     class String;
+    class Class;
   }
   namespace io {
     class IOException;

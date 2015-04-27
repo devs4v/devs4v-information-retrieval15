@@ -11,25 +11,25 @@ namespace org {
         class IndexReader;
       }
       namespace search {
-        class BooleanClause$Occur;
         class IndexSearcher;
-        class Weight;
+        class BooleanClause$Occur;
         class BooleanClause;
+        class Weight;
       }
     }
   }
 }
 namespace java {
+  namespace lang {
+    class Object;
+    class Class;
+    class Iterable;
+    class String;
+  }
   namespace util {
     class Set;
     class List;
     class Iterator;
-  }
-  namespace lang {
-    class Object;
-    class String;
-    class Iterable;
-    class Class;
   }
   namespace io {
     class IOException;

@@ -19,15 +19,15 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class CloneNotSupportedException;
+    class String;
+    class CharSequence;
+  }
   namespace util {
     class Map;
     class List;
-  }
-  namespace lang {
-    class CloneNotSupportedException;
-    class CharSequence;
-    class String;
-    class Class;
   }
 }
 template<class T> class JArray;

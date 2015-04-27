@@ -23,9 +23,9 @@ namespace java {
   }
   namespace lang {
     class Integer;
-    class String;
-    class Long;
     class Class;
+    class Long;
+    class String;
   }
   namespace io {
     class IOException;

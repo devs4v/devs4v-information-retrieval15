@@ -5,13 +5,13 @@
 
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class PrintWriter;
-    class Flushable;
     class Reader;
+    class Flushable;
   }
 }
 template<class T> class JArray;

@@ -11,8 +11,8 @@ namespace org {
       }
       namespace index {
         class SegmentInfo;
-        class FieldInfo;
         class MergeState;
+        class FieldInfo;
         class FieldInfos;
       }
       namespace store {
@@ -29,12 +29,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Comparator;
-  }
   namespace lang {
     class String;
     class Class;
+  }
+  namespace util {
+    class Comparator;
   }
   namespace io {
     class IOException;

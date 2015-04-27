@@ -5,11 +5,11 @@
 
 namespace java {
   namespace util {
-    class Iterator;
-    class NavigableSet;
     class SortedSet;
+    class NavigableSet;
     class Collection;
     class Comparator;
+    class Iterator;
   }
   namespace lang {
     class Object;
@@ -29,9 +29,9 @@ namespace java {
     public:
       enum {
         mid_init$_54c6a166,
-        mid_init$_6ffdd545,
         mid_init$_0c3f2ecf,
         mid_init$_9bfb370d,
+        mid_init$_6ffdd545,
         mid_add_290588e2,
         mid_addAll_9bfb3701,
         mid_ceiling_a932a95f,
@@ -73,9 +73,9 @@ namespace java {
       TreeSet(const TreeSet& obj) : ::java::util::AbstractSet(obj) {}
 
       TreeSet();
-      TreeSet(const ::java::util::Comparator &);
       TreeSet(const ::java::util::SortedSet &);
       TreeSet(const ::java::util::Collection &);
+      TreeSet(const ::java::util::Comparator &);
 
       jboolean add(const ::java::lang::Object &) const;
       jboolean addAll(const ::java::util::Collection &) const;

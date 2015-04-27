@@ -24,9 +24,9 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class Number;
-    class Iterable;
     class Class;
+    class Iterable;
+    class Number;
   }
   namespace util {
     class List;

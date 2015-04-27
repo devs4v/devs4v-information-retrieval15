@@ -20,10 +20,10 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class CloneNotSupportedException;
-    class CharSequence;
     class String;
+    class CloneNotSupportedException;
     class Class;
+    class CharSequence;
   }
 }
 template<class T> class JArray;

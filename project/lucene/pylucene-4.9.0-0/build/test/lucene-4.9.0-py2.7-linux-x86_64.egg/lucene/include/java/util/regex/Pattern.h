@@ -4,15 +4,15 @@
 #include "java/lang/Object.h"
 
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+    class CharSequence;
+  }
   namespace util {
     namespace regex {
       class Matcher;
     }
-  }
-  namespace lang {
-    class CharSequence;
-    class String;
-    class Class;
   }
   namespace io {
     class Serializable;

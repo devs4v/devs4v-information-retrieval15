@@ -7,8 +7,8 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class SegmentReadState;
         class SegmentWriteState;
+        class SegmentReadState;
       }
       namespace codecs {
         class DocValuesConsumer;

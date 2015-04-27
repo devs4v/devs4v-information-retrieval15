@@ -11,16 +11,16 @@ namespace org {
       }
       namespace index {
         class FieldInfos;
-        class Term;
-        class Terms;
+        class DocsEnum;
+        class AtomicReader$CoreClosedListener;
         class SortedSetDocValues;
         class Fields;
         class DocsAndPositionsEnum;
-        class DocsEnum;
+        class Term;
         class SortedDocValues;
         class BinaryDocValues;
         class NumericDocValues;
-        class AtomicReader$CoreClosedListener;
+        class Terms;
         class SortedNumericDocValues;
         class AtomicReaderContext;
       }
@@ -29,8 +29,8 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

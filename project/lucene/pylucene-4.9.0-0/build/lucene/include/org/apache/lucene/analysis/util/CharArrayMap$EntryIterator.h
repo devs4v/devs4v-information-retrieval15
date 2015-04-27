@@ -4,13 +4,13 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace lang {
-    class String;
-    class Class;
-  }
   namespace util {
     class Map$Entry;
     class Iterator;
+  }
+  namespace lang {
+    class String;
+    class Class;
   }
 }
 template<class T> class JArray;

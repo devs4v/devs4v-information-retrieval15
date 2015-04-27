@@ -14,12 +14,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Comparator;
-  }
   namespace lang {
     class Class;
     class IllegalStateException;
+  }
+  namespace util {
+    class Comparator;
   }
   namespace io {
     class IOException;

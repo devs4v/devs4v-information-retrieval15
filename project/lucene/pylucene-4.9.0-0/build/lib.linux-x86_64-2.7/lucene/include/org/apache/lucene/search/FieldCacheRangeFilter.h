@@ -15,12 +15,12 @@ namespace org {
       }
       namespace search {
         class DocIdSet;
-        class FieldCache$LongParser;
+        class FieldCache$ShortParser;
         class FieldCache$ByteParser;
         class FieldCache$Parser;
-        class FieldCache$ShortParser;
-        class FieldCache$IntParser;
         class FieldCache$DoubleParser;
+        class FieldCache$IntParser;
+        class FieldCache$LongParser;
         class FieldCache$FloatParser;
       }
     }
@@ -28,12 +28,12 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class Float;
+    class Short;
     class String;
     class Double;
     class Object;
     class Long;
-    class Short;
+    class Float;
     class Integer;
     class Byte;
     class Class;

@@ -13,13 +13,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace lang {
-    class Class;
-  }
   namespace util {
     namespace regex {
       class Pattern;
     }
+  }
+  namespace lang {
+    class Class;
   }
 }
 template<class T> class JArray;

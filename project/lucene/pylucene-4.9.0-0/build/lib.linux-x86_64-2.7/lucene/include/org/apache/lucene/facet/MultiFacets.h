@@ -13,14 +13,14 @@ namespace org {
   }
 }
 namespace java {
-  namespace lang {
-    class Class;
-    class Number;
-    class String;
-  }
   namespace util {
     class Map;
     class List;
+  }
+  namespace lang {
+    class Number;
+    class String;
+    class Class;
   }
   namespace io {
     class IOException;

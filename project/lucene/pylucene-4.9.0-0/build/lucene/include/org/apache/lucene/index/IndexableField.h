@@ -21,8 +21,8 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class Class;
     class Number;
+    class Class;
     class String;
   }
   namespace io {

@@ -6,8 +6,8 @@
 namespace java {
   namespace lang {
     class ClassNotFoundException;
-    class String;
     class Class;
+    class String;
   }
   namespace util {
     class Enumeration;

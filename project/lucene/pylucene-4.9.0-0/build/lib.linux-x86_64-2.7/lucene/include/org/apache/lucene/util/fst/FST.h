@@ -10,14 +10,14 @@ namespace org {
         class Accountable;
         namespace fst {
           class FST$Arc;
+          class Outputs;
           class FST$INPUT_TYPE;
           class FST$BytesReader;
-          class Outputs;
         }
       }
       namespace store {
-        class DataInput;
         class DataOutput;
+        class DataInput;
       }
     }
   }

@@ -4,13 +4,13 @@
 #include "java/util/AbstractSet.h"
 
 namespace java {
-  namespace util {
-    class Collection;
-  }
   namespace lang {
     class Enum;
     class Class;
     class Cloneable;
+  }
+  namespace util {
+    class Collection;
   }
   namespace io {
     class Serializable;

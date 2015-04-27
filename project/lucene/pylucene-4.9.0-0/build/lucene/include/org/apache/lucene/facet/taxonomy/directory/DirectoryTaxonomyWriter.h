@@ -11,10 +11,10 @@ namespace org {
           namespace directory {
             class DirectoryTaxonomyWriter$OrdinalMap;
           }
-          class TaxonomyWriter;
           namespace writercache {
             class TaxonomyWriterCache;
           }
+          class TaxonomyWriter;
           class FacetLabel;
         }
       }
@@ -28,12 +28,12 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+  }
   namespace util {
     class Map;
-  }
-  namespace lang {
-    class String;
-    class Class;
   }
   namespace io {
     class IOException;

@@ -15,10 +15,10 @@ namespace org {
       namespace queryparser {
         namespace classic {
           class QueryParserConstants;
-          class CharStream;
-          class Token;
           class QueryParserTokenManager;
+          class Token;
           class ParseException;
+          class CharStream;
         }
       }
       namespace analysis {
@@ -29,8 +29,8 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

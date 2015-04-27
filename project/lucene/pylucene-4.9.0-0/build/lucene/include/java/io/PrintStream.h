@@ -5,11 +5,11 @@
 
 namespace java {
   namespace lang {
-    class CharSequence;
+    class String;
     class Appendable;
     class Object;
-    class String;
     class Class;
+    class CharSequence;
   }
   namespace util {
     class Locale;

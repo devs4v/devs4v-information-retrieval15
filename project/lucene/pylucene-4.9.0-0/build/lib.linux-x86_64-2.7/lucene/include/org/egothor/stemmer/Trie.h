@@ -12,18 +12,18 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class List;
-  }
   namespace lang {
     class Class;
     class CharSequence;
   }
+  namespace util {
+    class List;
+  }
   namespace io {
     class IOException;
-    class DataInput;
-    class PrintStream;
     class DataOutput;
+    class PrintStream;
+    class DataInput;
   }
 }
 template<class T> class JArray;

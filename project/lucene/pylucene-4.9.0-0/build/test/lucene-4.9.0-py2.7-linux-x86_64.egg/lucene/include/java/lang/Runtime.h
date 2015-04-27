@@ -6,9 +6,9 @@
 namespace java {
   namespace lang {
     class Process;
-    class String;
-    class Thread;
     class Class;
+    class Thread;
+    class String;
   }
   namespace io {
     class OutputStream;

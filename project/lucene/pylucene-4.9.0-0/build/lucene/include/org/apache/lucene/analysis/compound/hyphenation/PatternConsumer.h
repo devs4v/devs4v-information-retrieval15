@@ -4,12 +4,12 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace util {
-    class ArrayList;
-  }
   namespace lang {
     class String;
     class Class;
+  }
+  namespace util {
+    class ArrayList;
   }
 }
 template<class T> class JArray;

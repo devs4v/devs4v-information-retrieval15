@@ -4,13 +4,13 @@
 #include "java/util/AbstractCollection.h"
 
 namespace java {
-  namespace lang {
-    class Object;
-    class Class;
-  }
   namespace util {
     class Set;
     class Collection;
+  }
+  namespace lang {
+    class Object;
+    class Class;
   }
 }
 template<class T> class JArray;

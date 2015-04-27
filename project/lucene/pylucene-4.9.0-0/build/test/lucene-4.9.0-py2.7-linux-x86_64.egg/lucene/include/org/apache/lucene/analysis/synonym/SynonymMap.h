@@ -8,10 +8,10 @@ namespace org {
     namespace lucene {
       namespace util {
         class BytesRefHash;
-        class BytesRef;
         namespace fst {
           class FST;
         }
+        class BytesRef;
       }
     }
   }

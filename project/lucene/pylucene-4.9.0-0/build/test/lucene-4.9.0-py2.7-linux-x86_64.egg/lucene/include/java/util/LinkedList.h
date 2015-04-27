@@ -58,8 +58,8 @@ namespace java {
         mid_pop_846352c3,
         mid_push_290588ee,
         mid_remove_846352c3,
-        mid_remove_290588e2,
         mid_remove_29be6a55,
+        mid_remove_290588e2,
         mid_removeFirst_846352c3,
         mid_removeFirstOccurrence_290588e2,
         mid_removeLast_846352c3,
@@ -114,8 +114,8 @@ namespace java {
       ::java::lang::Object pop() const;
       void push(const ::java::lang::Object &) const;
       ::java::lang::Object remove() const;
-      jboolean remove(const ::java::lang::Object &) const;
       ::java::lang::Object remove(jint) const;
+      jboolean remove(const ::java::lang::Object &) const;
       ::java::lang::Object removeFirst() const;
       jboolean removeFirstOccurrence(const ::java::lang::Object &) const;
       ::java::lang::Object removeLast() const;

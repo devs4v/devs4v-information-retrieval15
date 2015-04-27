@@ -6,12 +6,12 @@
 namespace org {
   namespace apache {
     namespace lucene {
-      namespace expressions {
-        class Bindings;
-      }
       namespace search {
         class SortField;
         class Rescorer;
+      }
+      namespace expressions {
+        class Bindings;
       }
       namespace queries {
         namespace function {
@@ -24,8 +24,8 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

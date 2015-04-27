@@ -6,10 +6,10 @@
 namespace java {
   namespace lang {
     class StringBuffer;
-    class CharSequence;
-    class Object;
     class String;
+    class Object;
     class Class;
+    class CharSequence;
   }
   namespace io {
     class Serializable;

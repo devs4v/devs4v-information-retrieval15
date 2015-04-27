@@ -12,22 +12,22 @@ namespace org {
         class BytesRef;
       }
       namespace index {
-        class Term;
-        class TermState;
-        class DocsAndPositionsEnum;
         class DocsEnum;
-        class TermsEnum$SeekStatus;
         class Terms;
+        class DocsAndPositionsEnum;
+        class Term;
+        class TermsEnum$SeekStatus;
+        class TermState;
       }
     }
   }
 }
 namespace java {
-  namespace util {
-    class Comparator;
-  }
   namespace lang {
     class Class;
+  }
+  namespace util {
+    class Comparator;
   }
   namespace io {
     class IOException;

@@ -4,13 +4,13 @@
 #include "java/lang/Object.h"
 
 namespace java {
-  namespace lang {
-    class String;
-    class Cloneable;
-    class Class;
-  }
   namespace util {
     class Locale;
+  }
+  namespace lang {
+    class Class;
+    class Cloneable;
+    class String;
   }
 }
 template<class T> class JArray;

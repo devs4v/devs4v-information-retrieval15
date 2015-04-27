@@ -10,9 +10,9 @@ namespace org {
         class FieldInvertState;
       }
       namespace search {
-        class CollectionStatistics;
-        class Explanation;
         class TermStatistics;
+        class Explanation;
+        class CollectionStatistics;
       }
     }
   }

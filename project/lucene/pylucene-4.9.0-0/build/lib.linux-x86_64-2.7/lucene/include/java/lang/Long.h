@@ -8,8 +8,8 @@ namespace java {
     class NumberFormatException;
     class Comparable;
     class Object;
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

@@ -7,11 +7,11 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace store {
-        class Directory;
         class IndexOutput;
+        class IOContext$Context;
         class IOContext;
         class RateLimiter;
-        class IOContext$Context;
+        class Directory;
       }
     }
   }

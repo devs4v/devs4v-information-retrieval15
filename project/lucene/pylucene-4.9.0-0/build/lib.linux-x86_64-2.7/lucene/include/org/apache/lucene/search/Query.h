@@ -19,9 +19,9 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
-    class Cloneable;
     class Class;
+    class Cloneable;
+    class String;
   }
   namespace util {
     class Set;

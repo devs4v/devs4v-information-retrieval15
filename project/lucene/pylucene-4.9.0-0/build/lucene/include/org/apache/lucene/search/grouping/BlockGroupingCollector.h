@@ -10,8 +10,8 @@ namespace org {
         class AtomicReaderContext;
       }
       namespace search {
-        class Filter;
         class Sort;
+        class Filter;
         class Scorer;
         namespace grouping {
           class TopGroups;

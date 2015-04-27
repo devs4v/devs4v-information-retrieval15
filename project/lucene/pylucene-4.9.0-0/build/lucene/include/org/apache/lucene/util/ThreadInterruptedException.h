@@ -5,8 +5,8 @@
 
 namespace java {
   namespace lang {
-    class Class;
     class InterruptedException;
+    class Class;
   }
 }
 template<class T> class JArray;

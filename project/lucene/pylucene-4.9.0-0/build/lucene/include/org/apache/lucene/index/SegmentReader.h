@@ -11,14 +11,14 @@ namespace org {
         class Bits;
       }
       namespace index {
+        class FieldInfos;
         class AtomicReader$CoreClosedListener;
         class SortedSetDocValues;
-        class FieldInfos;
-        class NumericDocValues;
+        class Fields;
         class SegmentCommitInfo;
         class SortedDocValues;
         class BinaryDocValues;
-        class Fields;
+        class NumericDocValues;
         class SortedNumericDocValues;
         class StoredFieldVisitor;
       }

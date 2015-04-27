@@ -10,17 +10,17 @@ namespace org {
         class Bits;
       }
       namespace index {
-        class BinaryDocValues;
         class AtomicReader;
         class SortedSetDocValues;
+        class BinaryDocValues;
         class SortedDocValues;
       }
       namespace search {
-        class FieldCache$Ints;
+        class FieldCache$ShortParser;
         class FieldCache$LongParser;
         class FieldCache$IntParser;
         class FieldCache$Doubles;
-        class FieldCache$ShortParser;
+        class FieldCache$Ints;
         class FieldCache$ByteParser;
         class FieldCache$Bytes;
         class FieldCache$Shorts;
@@ -35,8 +35,8 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

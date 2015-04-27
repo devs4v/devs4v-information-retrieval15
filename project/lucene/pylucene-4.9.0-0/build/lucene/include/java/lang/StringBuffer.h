@@ -5,10 +5,10 @@
 
 namespace java {
   namespace lang {
-    class CharSequence;
-    class Object;
     class String;
+    class Object;
     class Class;
+    class CharSequence;
   }
   namespace io {
     class Serializable;

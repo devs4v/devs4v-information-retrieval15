@@ -10,27 +10,27 @@ namespace org {
         class Bits;
       }
       namespace index {
-        class TermContext;
-        class Term;
         class AtomicReaderContext;
+        class Term;
+        class TermContext;
       }
       namespace search {
         class IndexSearcher;
-        class Weight;
         namespace spans {
           class Spans;
         }
+        class Weight;
       }
     }
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+  }
   namespace util {
     class Map;
-  }
-  namespace lang {
-    class String;
-    class Class;
   }
   namespace io {
     class IOException;

@@ -15,8 +15,8 @@ namespace org {
 namespace java {
   namespace lang {
     class Class;
-    class Number;
     class String;
+    class Number;
   }
 }
 template<class T> class JArray;

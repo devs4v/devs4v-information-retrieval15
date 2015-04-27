@@ -50,9 +50,9 @@ namespace org {
                   mid_postProcessNode_6705aed7,
                   mid_preProcessNode_6705aed7,
                   mid_processChildren_cc04aeef,
-                  mid_tagModifierButDoNotOverride_6bd34b3d,
                   mid_fillChildrenBufferAndApplyModifiery_cc04aeef,
                   mid_isDefaultBooleanQueryNode_cc04aee3,
+                  mid_tagModifierButDoNotOverride_6bd34b3d,
                   max_mid
                 };
 

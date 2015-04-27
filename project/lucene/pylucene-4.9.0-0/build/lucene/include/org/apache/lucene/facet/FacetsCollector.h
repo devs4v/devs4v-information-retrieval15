@@ -14,10 +14,10 @@ namespace org {
       }
       namespace search {
         class Sort;
-        class IndexSearcher;
+        class Filter;
         class TopFieldDocs;
         class TopDocs;
-        class Filter;
+        class IndexSearcher;
         class Scorer;
         class Query;
         class ScoreDoc;
@@ -26,11 +26,11 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class List;
-  }
   namespace lang {
     class Class;
+  }
+  namespace util {
+    class List;
   }
   namespace io {
     class IOException;

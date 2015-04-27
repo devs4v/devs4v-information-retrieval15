@@ -6,13 +6,13 @@
 namespace org {
   namespace apache {
     namespace lucene {
+      namespace search {
+        class Filter;
+      }
       namespace queryparser {
         namespace xml {
           class FilterBuilder;
         }
-      }
-      namespace search {
-        class Filter;
       }
       namespace analysis {
         class Analyzer;

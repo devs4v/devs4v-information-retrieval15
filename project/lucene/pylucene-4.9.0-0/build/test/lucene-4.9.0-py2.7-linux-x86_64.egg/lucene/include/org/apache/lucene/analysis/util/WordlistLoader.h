@@ -27,9 +27,9 @@ namespace java {
     class Class;
   }
   namespace io {
-    class InputStream;
-    class IOException;
     class Reader;
+    class IOException;
+    class InputStream;
   }
 }
 template<class T> class JArray;

@@ -29,13 +29,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Map;
-    class Collection;
-  }
   namespace lang {
     class Object;
     class Class;
+  }
+  namespace util {
+    class Map;
+    class Collection;
   }
   namespace io {
     class IOException;

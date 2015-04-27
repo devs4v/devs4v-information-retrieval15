@@ -19,10 +19,10 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class Class;
-    class Object;
-    class Number;
     class String;
+    class Object;
+    class Class;
+    class Number;
   }
   namespace util {
     class Map;

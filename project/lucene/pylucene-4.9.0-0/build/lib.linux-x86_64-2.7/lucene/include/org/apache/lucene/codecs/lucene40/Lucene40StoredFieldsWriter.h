@@ -7,9 +7,9 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
+        class MergeState;
         class FieldInfo;
         class IndexableField;
-        class MergeState;
         class FieldInfos;
       }
       namespace store {
@@ -22,8 +22,8 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class Class;
     class String;
+    class Class;
   }
   namespace io {
     class IOException;

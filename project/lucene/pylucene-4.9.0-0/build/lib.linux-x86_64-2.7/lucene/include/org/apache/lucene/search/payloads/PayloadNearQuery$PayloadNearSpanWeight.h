@@ -15,13 +15,13 @@ namespace org {
       namespace search {
         class IndexSearcher;
         class Explanation;
+        class Scorer;
         namespace spans {
           class SpanQuery;
         }
         namespace payloads {
           class PayloadNearQuery;
         }
-        class Scorer;
       }
     }
   }

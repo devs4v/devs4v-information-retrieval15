@@ -6,16 +6,16 @@
 namespace org {
   namespace apache {
     namespace lucene {
-      namespace search {
-        namespace spans {
-          class SpanQuery;
-        }
-      }
       namespace queryparser {
         namespace xml {
           namespace builders {
             class SpanQueryBuilder;
           }
+        }
+      }
+      namespace search {
+        namespace spans {
+          class SpanQuery;
         }
       }
     }

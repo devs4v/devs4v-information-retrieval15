@@ -9,12 +9,6 @@ namespace org {
       namespace index {
         class Term;
       }
-      namespace search {
-        class TermQuery;
-        namespace spans {
-          class SpanTermQuery;
-        }
-      }
       namespace queryparser {
         namespace surround {
           namespace query {
@@ -22,13 +16,19 @@ namespace org {
           }
         }
       }
+      namespace search {
+        class TermQuery;
+        namespace spans {
+          class SpanTermQuery;
+        }
+      }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

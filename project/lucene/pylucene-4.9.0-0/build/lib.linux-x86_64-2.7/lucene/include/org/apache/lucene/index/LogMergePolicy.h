@@ -17,13 +17,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Map;
-  }
   namespace lang {
     class Boolean;
-    class String;
     class Class;
+    class String;
+  }
+  namespace util {
+    class Map;
   }
   namespace io {
     class IOException;
@@ -54,8 +54,8 @@ namespace org {
             mid_message_dcbb03ef,
             mid_isMerged_2ee943c8,
             mid_verbose_4f2fb7d9,
-            mid_sizeDocs_5454cb07,
             mid_sizeBytes_5454cb07,
+            mid_sizeDocs_5454cb07,
             max_mid
           };
 

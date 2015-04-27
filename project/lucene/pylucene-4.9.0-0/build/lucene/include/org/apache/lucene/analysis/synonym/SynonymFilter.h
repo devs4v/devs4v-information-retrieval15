@@ -7,10 +7,10 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace analysis {
+        class TokenStream;
         namespace synonym {
           class SynonymMap;
         }
-        class TokenStream;
       }
     }
   }

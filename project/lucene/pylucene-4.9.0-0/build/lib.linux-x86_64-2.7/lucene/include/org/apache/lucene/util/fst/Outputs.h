@@ -7,16 +7,16 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace store {
-        class DataInput;
         class DataOutput;
+        class DataInput;
       }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

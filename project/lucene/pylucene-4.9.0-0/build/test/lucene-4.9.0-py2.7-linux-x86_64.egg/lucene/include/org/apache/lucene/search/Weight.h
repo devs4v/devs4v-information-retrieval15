@@ -15,8 +15,8 @@ namespace org {
       namespace search {
         class Query;
         class Explanation;
-        class Scorer;
         class BulkScorer;
+        class Scorer;
       }
     }
   }

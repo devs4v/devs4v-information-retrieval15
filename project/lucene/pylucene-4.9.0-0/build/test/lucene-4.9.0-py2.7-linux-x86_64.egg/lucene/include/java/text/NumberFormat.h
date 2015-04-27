@@ -4,16 +4,16 @@
 #include "java/text/Format.h"
 
 namespace java {
-  namespace lang {
-    class StringBuffer;
-    class Class;
-    class Object;
-    class Number;
-    class String;
-  }
   namespace util {
     class Locale;
     class Currency;
+  }
+  namespace lang {
+    class StringBuffer;
+    class Object;
+    class Class;
+    class String;
+    class Number;
   }
 }
 template<class T> class JArray;

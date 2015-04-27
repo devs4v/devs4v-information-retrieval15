@@ -5,10 +5,10 @@
 
 namespace java {
   namespace lang {
-    class Appendable;
-    class CharSequence;
     class String;
+    class Appendable;
     class Class;
+    class CharSequence;
   }
   namespace io {
     class IOException;

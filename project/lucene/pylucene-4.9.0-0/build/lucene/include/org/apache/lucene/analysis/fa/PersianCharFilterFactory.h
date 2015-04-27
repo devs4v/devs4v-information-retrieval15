@@ -7,22 +7,22 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace analysis {
-        class CharFilter;
         namespace util {
           class MultiTermAwareComponent;
           class AbstractAnalysisFactory;
         }
+        class CharFilter;
       }
     }
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+  }
   namespace util {
     class Map;
-  }
-  namespace lang {
-    class String;
-    class Class;
   }
   namespace io {
     class Reader;

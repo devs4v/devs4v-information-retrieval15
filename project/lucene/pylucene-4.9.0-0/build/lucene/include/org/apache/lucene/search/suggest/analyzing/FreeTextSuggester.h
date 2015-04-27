@@ -15,12 +15,12 @@ namespace org {
           class InputIterator;
         }
       }
+      namespace store {
+        class DataOutput;
+        class DataInput;
+      }
       namespace analysis {
         class Analyzer;
-      }
-      namespace store {
-        class DataInput;
-        class DataOutput;
       }
     }
   }
@@ -31,10 +31,10 @@ namespace java {
     class List;
   }
   namespace lang {
-    class CharSequence;
-    class Object;
     class String;
+    class Object;
     class Class;
+    class CharSequence;
   }
   namespace io {
     class IOException;

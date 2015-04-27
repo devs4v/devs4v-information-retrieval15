@@ -18,17 +18,17 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Cloneable;
+    class Class;
+    class Iterable;
+    class String;
+  }
   namespace util {
     class Map;
     class List;
     class Iterator;
     class Collection;
-  }
-  namespace lang {
-    class Iterable;
-    class String;
-    class Cloneable;
-    class Class;
   }
   namespace io {
     class IOException;

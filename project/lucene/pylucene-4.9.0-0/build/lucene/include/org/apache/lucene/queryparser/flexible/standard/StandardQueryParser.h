@@ -36,14 +36,14 @@ namespace org {
 namespace java {
   namespace util {
     class Locale;
-    class Map;
     class TimeZone;
+    class Map;
   }
   namespace lang {
     class CharSequence;
     class Float;
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

@@ -20,11 +20,11 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Collection;
-  }
   namespace lang {
     class Class;
+  }
+  namespace util {
+    class Collection;
   }
   namespace io {
     class IOException;

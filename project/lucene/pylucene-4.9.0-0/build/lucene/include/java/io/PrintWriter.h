@@ -4,14 +4,14 @@
 #include "java/io/Writer.h"
 
 namespace java {
-  namespace lang {
-    class CharSequence;
-    class Object;
-    class String;
-    class Class;
-  }
   namespace util {
     class Locale;
+  }
+  namespace lang {
+    class String;
+    class Object;
+    class Class;
+    class CharSequence;
   }
   namespace io {
     class UnsupportedEncodingException;

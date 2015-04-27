@@ -18,12 +18,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace lang {
-    class String;
-    class Class;
-  }
   namespace util {
     class Set;
+  }
+  namespace lang {
+    class Class;
+    class String;
   }
 }
 template<class T> class JArray;

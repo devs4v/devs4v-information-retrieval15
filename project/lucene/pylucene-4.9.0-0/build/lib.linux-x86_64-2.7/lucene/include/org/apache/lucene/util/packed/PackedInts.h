@@ -8,29 +8,29 @@ namespace org {
     namespace lucene {
       namespace util {
         namespace packed {
+          class PackedInts$Reader;
           class PackedInts$FormatAndBits;
           class PackedInts$Encoder;
-          class PackedInts$Mutable;
+          class PackedInts$Format;
           class PackedInts$ReaderIterator;
           class PackedInts$Header;
-          class PackedInts$Format;
           class PackedInts$Decoder;
+          class PackedInts$Mutable;
           class PackedInts$Writer;
-          class PackedInts$Reader;
         }
       }
       namespace store {
         class IndexInput;
-        class DataInput;
         class DataOutput;
+        class DataInput;
       }
     }
   }
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

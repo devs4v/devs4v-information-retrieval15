@@ -15,12 +15,12 @@ namespace org {
           class InputIterator;
         }
       }
+      namespace store {
+        class DataOutput;
+        class DataInput;
+      }
       namespace analysis {
         class Analyzer;
-      }
-      namespace store {
-        class DataInput;
-        class DataOutput;
       }
     }
   }

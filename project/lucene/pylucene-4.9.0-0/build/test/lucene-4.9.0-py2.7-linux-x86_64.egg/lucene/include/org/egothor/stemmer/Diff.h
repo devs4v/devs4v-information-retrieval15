@@ -6,9 +6,9 @@
 namespace java {
   namespace lang {
     class StringBuilder;
-    class CharSequence;
-    class String;
     class Class;
+    class String;
+    class CharSequence;
   }
 }
 template<class T> class JArray;

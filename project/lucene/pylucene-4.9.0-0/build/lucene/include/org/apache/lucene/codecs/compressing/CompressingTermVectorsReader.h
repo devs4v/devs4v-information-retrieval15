@@ -8,8 +8,8 @@ namespace org {
     namespace lucene {
       namespace index {
         class SegmentInfo;
-        class FieldInfos;
         class Fields;
+        class FieldInfos;
       }
       namespace store {
         class Directory;

@@ -7,18 +7,18 @@ namespace java {
   namespace util {
     class Deque;
     class Set;
-    class Comparator;
     class Iterator;
+    class Comparator;
     class Map;
-    class ArrayList;
+    class SortedMap;
     class Random;
     class List;
-    class Collection;
-    class SortedSet;
     class Enumeration;
+    class SortedSet;
+    class Collection;
     class Queue;
     class ListIterator;
-    class SortedMap;
+    class ArrayList;
   }
   namespace lang {
     class Comparable;

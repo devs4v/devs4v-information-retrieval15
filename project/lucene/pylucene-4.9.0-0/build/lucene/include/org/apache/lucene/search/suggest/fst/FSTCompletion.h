@@ -22,12 +22,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class List;
-  }
   namespace lang {
     class Class;
     class CharSequence;
+  }
+  namespace util {
+    class List;
   }
 }
 template<class T> class JArray;

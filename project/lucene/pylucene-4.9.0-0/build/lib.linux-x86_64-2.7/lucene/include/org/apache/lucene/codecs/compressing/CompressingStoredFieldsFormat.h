@@ -15,8 +15,8 @@ namespace org {
         class IOContext;
       }
       namespace codecs {
-        class StoredFieldsReader;
         class StoredFieldsWriter;
+        class StoredFieldsReader;
         namespace compressing {
           class CompressionMode;
         }

@@ -4,16 +4,16 @@
 #include "java/lang/Object.h"
 
 namespace java {
+  namespace lang {
+    class InterruptedException;
+    class Class;
+  }
   namespace util {
     namespace concurrent {
       class TimeUnit;
       class TimeoutException;
       class ExecutionException;
     }
-  }
-  namespace lang {
-    class Class;
-    class InterruptedException;
   }
 }
 template<class T> class JArray;

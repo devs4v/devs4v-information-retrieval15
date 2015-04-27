@@ -23,8 +23,8 @@ namespace org {
 namespace java {
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

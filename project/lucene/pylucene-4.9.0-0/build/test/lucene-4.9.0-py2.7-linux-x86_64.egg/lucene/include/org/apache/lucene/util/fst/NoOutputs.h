@@ -7,8 +7,8 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace store {
-        class DataInput;
         class DataOutput;
+        class DataInput;
       }
     }
   }
@@ -16,8 +16,8 @@ namespace org {
 namespace java {
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
   }
 }
 template<class T> class JArray;

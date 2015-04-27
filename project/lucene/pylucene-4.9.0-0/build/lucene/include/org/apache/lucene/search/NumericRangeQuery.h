@@ -5,10 +5,10 @@
 
 namespace java {
   namespace lang {
-    class Object;
+    class Float;
     class String;
     class Double;
-    class Float;
+    class Object;
     class Number;
     class Long;
     class Integer;

@@ -25,13 +25,13 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class List;
-  }
   namespace lang {
     class Throwable;
-    class String;
     class Class;
+    class String;
+  }
+  namespace util {
+    class List;
   }
 }
 template<class T> class JArray;

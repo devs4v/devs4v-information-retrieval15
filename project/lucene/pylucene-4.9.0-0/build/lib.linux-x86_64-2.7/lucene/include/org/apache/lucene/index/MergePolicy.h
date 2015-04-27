@@ -17,12 +17,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Map;
-  }
   namespace lang {
     class Boolean;
     class Class;
+  }
+  namespace util {
+    class Map;
   }
   namespace io {
     class IOException;

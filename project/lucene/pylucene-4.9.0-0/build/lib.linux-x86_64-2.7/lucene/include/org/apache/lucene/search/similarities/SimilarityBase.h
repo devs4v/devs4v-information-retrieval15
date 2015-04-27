@@ -11,11 +11,11 @@ namespace org {
         class FieldInvertState;
       }
       namespace search {
-        namespace similarities {
-          class Similarity$SimWeight;
-          class Similarity$SimScorer;
-        }
         class TermStatistics;
+        namespace similarities {
+          class Similarity$SimScorer;
+          class Similarity$SimWeight;
+        }
         class CollectionStatistics;
       }
     }
@@ -23,8 +23,8 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

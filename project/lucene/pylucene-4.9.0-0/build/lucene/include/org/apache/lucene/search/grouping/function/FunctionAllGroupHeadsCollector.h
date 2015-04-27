@@ -27,12 +27,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Map;
-  }
   namespace lang {
     class Object;
     class Class;
+  }
+  namespace util {
+    class Map;
   }
   namespace io {
     class IOException;

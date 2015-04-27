@@ -17,12 +17,12 @@ namespace org {
   }
 }
 namespace java {
+  namespace util {
+    class Locale;
+  }
   namespace lang {
     class String;
     class Class;
-  }
-  namespace util {
-    class Locale;
   }
 }
 template<class T> class JArray;

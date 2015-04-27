@@ -13,14 +13,14 @@ namespace org {
   }
 }
 namespace java {
-  namespace lang {
-    class Comparable;
-    class CharSequence;
-    class String;
-    class Class;
-  }
   namespace util {
     class Set;
+  }
+  namespace lang {
+    class String;
+    class Comparable;
+    class Class;
+    class CharSequence;
   }
 }
 template<class T> class JArray;

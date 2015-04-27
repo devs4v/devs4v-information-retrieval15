@@ -10,9 +10,9 @@ namespace org {
         class Bits;
       }
       namespace index {
-        class TermContext;
-        class Term;
         class AtomicReaderContext;
+        class Term;
+        class TermContext;
       }
       namespace search {
         namespace spans {
@@ -29,8 +29,8 @@ namespace java {
   }
   namespace lang {
     class Object;
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

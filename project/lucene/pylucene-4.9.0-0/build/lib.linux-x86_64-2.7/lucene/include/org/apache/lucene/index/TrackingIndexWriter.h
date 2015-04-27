@@ -7,19 +7,19 @@ namespace org {
   namespace apache {
     namespace lucene {
       namespace index {
-        class IndexWriter;
-        class IndexableField;
         class Term;
+        class IndexWriter;
         class IndexReader;
+        class IndexableField;
       }
       namespace search {
         class Query;
       }
-      namespace store {
-        class Directory;
-      }
       namespace analysis {
         class Analyzer;
+      }
+      namespace store {
+        class Directory;
       }
     }
   }

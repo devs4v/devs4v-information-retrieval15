@@ -18,12 +18,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Map;
-  }
   namespace lang {
     class Class;
     class String;
+  }
+  namespace util {
+    class Map;
   }
   namespace io {
     class Reader;

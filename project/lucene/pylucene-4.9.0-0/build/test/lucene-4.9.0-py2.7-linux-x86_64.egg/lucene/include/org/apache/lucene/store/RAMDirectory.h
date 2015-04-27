@@ -10,8 +10,8 @@ namespace org {
         class Accountable;
       }
       namespace store {
-        class Directory;
         class IndexOutput;
+        class Directory;
         class IndexInput;
         class IOContext;
       }
@@ -19,12 +19,12 @@ namespace org {
   }
 }
 namespace java {
-  namespace util {
-    class Collection;
-  }
   namespace lang {
     class String;
     class Class;
+  }
+  namespace util {
+    class Collection;
   }
   namespace io {
     class IOException;

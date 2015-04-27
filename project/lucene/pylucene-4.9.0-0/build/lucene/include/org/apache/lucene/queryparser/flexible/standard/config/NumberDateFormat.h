@@ -6,10 +6,10 @@
 namespace java {
   namespace lang {
     class StringBuffer;
-    class Class;
     class Object;
-    class Number;
+    class Class;
     class String;
+    class Number;
   }
   namespace text {
     class DateFormat;

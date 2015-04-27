@@ -15,15 +15,15 @@ namespace org {
       }
       namespace search {
         class Sort;
+        class Weight;
         namespace similarities {
           class Similarity;
         }
-        class Weight;
-        class Collector;
         class Explanation;
         class TopDocs;
         class Filter;
         class CollectionStatistics;
+        class Collector;
         class Query;
         class TermStatistics;
         class ScoreDoc;
@@ -36,15 +36,15 @@ namespace org {
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+  }
   namespace util {
     namespace concurrent {
       class ExecutorService;
     }
     class Set;
-  }
-  namespace lang {
-    class String;
-    class Class;
   }
   namespace io {
     class IOException;

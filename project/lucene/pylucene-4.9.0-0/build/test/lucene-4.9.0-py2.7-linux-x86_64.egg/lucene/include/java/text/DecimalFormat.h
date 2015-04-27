@@ -6,9 +6,9 @@
 namespace java {
   namespace lang {
     class StringBuffer;
-    class Class;
-    class Object;
     class Number;
+    class Object;
+    class Class;
     class String;
   }
   namespace util {

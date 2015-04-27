@@ -5,11 +5,11 @@
 
 namespace java {
   namespace lang {
-    class StringBuilder;
-    class Appendable;
-    class CharSequence;
     class String;
+    class Appendable;
     class Class;
+    class StringBuilder;
+    class CharSequence;
   }
 }
 template<class T> class JArray;

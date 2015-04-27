@@ -14,15 +14,15 @@ namespace org {
 }
 namespace java {
   namespace lang {
-    class String;
-    class Long;
     class Class;
-  }
-  namespace text {
-    class DecimalFormat;
+    class Long;
+    class String;
   }
   namespace util {
     class EnumSet;
+  }
+  namespace text {
+    class DecimalFormat;
   }
 }
 template<class T> class JArray;

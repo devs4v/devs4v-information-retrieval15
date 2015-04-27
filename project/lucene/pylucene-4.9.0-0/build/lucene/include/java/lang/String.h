@@ -9,11 +9,11 @@ namespace java {
     class Comparator;
   }
   namespace lang {
-    class StringBuilder;
-    class Comparable;
-    class CharSequence;
-    class Class;
     class StringBuffer;
+    class Comparable;
+    class Class;
+    class StringBuilder;
+    class CharSequence;
   }
   namespace io {
     class UnsupportedEncodingException;

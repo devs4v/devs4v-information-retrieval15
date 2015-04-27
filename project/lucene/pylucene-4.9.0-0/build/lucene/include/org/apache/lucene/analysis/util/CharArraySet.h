@@ -19,10 +19,10 @@ namespace java {
     class Collection;
   }
   namespace lang {
-    class CharSequence;
-    class Object;
     class String;
+    class Object;
     class Class;
+    class CharSequence;
   }
 }
 template<class T> class JArray;

@@ -21,11 +21,11 @@ namespace org {
 }
 namespace java {
   namespace lang {
+    class String;
+    class Object;
+    class Class;
     class StringBuilder;
     class CharSequence;
-    class Object;
-    class String;
-    class Class;
   }
 }
 template<class T> class JArray;

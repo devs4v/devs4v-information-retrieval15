@@ -11,10 +11,10 @@ namespace org {
         class Terms;
         class Fields;
         class DirectoryReader;
-        class IndexCommit;
+        class IndexReaderContext;
         class IndexWriter;
         class IndexReader$ReaderClosedListener;
-        class IndexReaderContext;
+        class IndexCommit;
         class AtomicReaderContext;
         class StoredFieldVisitor;
       }
@@ -33,8 +33,8 @@ namespace java {
     class List;
   }
   namespace lang {
-    class String;
     class Class;
+    class String;
   }
   namespace io {
     class IOException;

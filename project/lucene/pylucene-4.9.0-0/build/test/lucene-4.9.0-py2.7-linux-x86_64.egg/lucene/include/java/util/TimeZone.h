@@ -5,13 +5,13 @@
 
 namespace java {
   namespace util {
-    class Date;
     class Locale;
+    class Date;
   }
   namespace lang {
-    class String;
-    class Cloneable;
     class Class;
+    class Cloneable;
+    class String;
   }
   namespace io {
     class Serializable;

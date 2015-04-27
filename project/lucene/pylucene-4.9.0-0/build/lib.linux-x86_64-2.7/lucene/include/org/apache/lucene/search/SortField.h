@@ -12,20 +12,20 @@ namespace org {
       namespace search {
         class IndexSearcher;
         class SortField$Type;
-        class FieldCache$Parser;
         class FieldComparatorSource;
+        class FieldCache$Parser;
         class FieldComparator;
       }
     }
   }
 }
 namespace java {
+  namespace lang {
+    class Class;
+    class String;
+  }
   namespace util {
     class Comparator;
-  }
-  namespace lang {
-    class String;
-    class Class;
   }
   namespace io {
     class IOException;

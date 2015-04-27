@@ -28,12 +28,12 @@ namespace org {
   }
 }
 namespace java {
+  namespace util {
+    class Locale;
+  }
   namespace lang {
     class Class;
     class CharSequence;
-  }
-  namespace util {
-    class Locale;
   }
 }
 template<class T> class JArray;

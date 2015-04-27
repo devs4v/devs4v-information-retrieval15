@@ -10,8 +10,8 @@ namespace org {
         class BytesRef;
       }
       namespace index {
-        class SegmentReadState;
         class SegmentWriteState;
+        class SegmentReadState;
       }
       namespace codecs {
         class FieldsProducer;

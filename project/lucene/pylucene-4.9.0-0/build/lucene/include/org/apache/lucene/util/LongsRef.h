@@ -6,9 +6,9 @@
 namespace java {
   namespace lang {
     class Comparable;
-    class String;
-    class Cloneable;
     class Class;
+    class Cloneable;
+    class String;
   }
 }
 template<class T> class JArray;

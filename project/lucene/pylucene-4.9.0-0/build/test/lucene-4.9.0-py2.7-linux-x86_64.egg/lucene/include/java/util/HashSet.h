@@ -4,14 +4,14 @@
 #include "java/util/AbstractSet.h"
 
 namespace java {
-  namespace util {
-    class Iterator;
-    class Collection;
-  }
   namespace lang {
     class Object;
     class Class;
     class Cloneable;
+  }
+  namespace util {
+    class Iterator;
+    class Collection;
   }
   namespace io {
     class Serializable;

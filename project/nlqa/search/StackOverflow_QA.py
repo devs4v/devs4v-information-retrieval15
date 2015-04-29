@@ -1,4 +1,5 @@
 import sys, time, threading, psycopg2, copy, lucene
+from psycopg2.extras import DictCursor
 
 from java.io import File
 from org.apache.lucene.analysis.standard import StandardAnalyzer
@@ -41,16 +42,17 @@ class StackOverflow_QA():
 
 		self.index_dir = index_dir
 
-		sqls = {
+		self.sqls = {
 				'all_question_ids' 	: """ SELECT "Id" FROM so_posts ORDER BY "Id" """,
 				'questions' 		: """ SELECT "Id", "Title", "Body", "Tags", "Topic" FROM so_posts WHERE "ParentId" = -1 ORDER BY "Id" """,
 				'question_by_id' 	: """ SELECT "Id", "Title", "Body", "Tags", "Topic" FROM so_posts WHERE "Id" = {question_id} ORDER BY "Id" """,
 				'answers'			: """ SELECT "Id", "Body" FROM so_posts WHERE "Id" = {question_id} ORDER BY "Id" """,
 				'comments'			: """ SELECT id, text FROM so_comments WHERE postid = {post_id} """
 			}
-		if debug:
-			for k in sqls.keys():
-				sqls[k] = sqls[k] + " LIMIT 10"
+		self.debug = debug
+		if self.debug:
+			for k in self.sqls.keys():
+				self.sqls[k] = self.sqls[k] + " LIMIT 10"
 		
 	def _check_database_connection(self):
 		if self.connection_string is None or self.connection_string.strip() == "":
@@ -70,7 +72,7 @@ class StackOverflow_QA():
 		start = time.time()
 
 		# get all posts
-		posts = self._tuples_to_dict(self._fetch_all_questions(), _posts_fields)
+		posts = self._tuples_to_dict(self._fetch_all_questions(), self._posts_fields)
 		if not posts:
 			raise Exception("FATAL Error: Could not fetch posts from Database")
 
@@ -94,7 +96,7 @@ class StackOverflow_QA():
 		storedField.setIndexed(False)
 		storedField.setStored(True)
 		storedField.setTokenized(False)
-		storedField.setIndexOptions(FieldInfo.DOCS)
+		storedField.setIndexOptions(FieldInfo.IndexOptions.DOCS_AND_FREQS)
 
 		fieldTypes = {
 						'type'		: storedField,
@@ -109,39 +111,50 @@ class StackOverflow_QA():
 
 		# get their comments
 		for post in posts:
-			answers = self._tuples_to_dict(_fetch_all_answers(post['id'], post['extra']))
+			if self.debug: print "Indexing post: ", post
+			answers = self._tuples_to_dict(self._fetch_all_answers(post['id'], post['extra']), self._answer_fields)
 
-			doc = Document()
-
-			doc.add(Field("type"), "so", fieldTypes['type'])
-			# make fields
-			for i in xrange(len(posts_fields)):
-				doc.add(Field(posts_fields[i]), self._cleanup_tag(post[posts_fields[i]]), fieldTypes[posts_fields[i]])
 
 			# add comment field
 			for answer in answers:
-				answered_doc = copy.deepcopy(doc)
+				doc = Document()
+				if self.debug: print "Adding doc type"
+				doc.add(Field("type", 'so', fieldTypes['type']))
+				
+				# make fields
+				if self.debug: print "Adding post fields"
+				for i in xrange(len(self._posts_fields)):
+					doc.add(Field(self._posts_fields[i], self._cleanup_tag(post[self._posts_fields[i]]), fieldTypes[self._posts_fields[i]]))
+
+
+				if self.debug: print "\t Indexing answer: ", answer
+				# answered_doc = copy.deepcopy(doc)
 				# make comment field
-				answered_doc.add(Field("answer"), self._cleanup_tag(answer['text']), fieldTypes['answer'])
+				doc.add(Field("answer", self._cleanup_tag(answer['answer']), fieldTypes['answer']))
 
 				# calculate paths
-				commented_doc = copy.deepcopy(answered_doc)
-				comments = self._comments_to_comment_string(self._fetch_all_comments(answer['id']))
+				# commented_doc = copy.deepcopy(answered_doc)
+				# comments = self._comments_to_comment_string(self._tuples_to_dict(self._fetch_all_comments(answer['id']), self._comment_fields))
 
-				commented_doc.add(Field("comment"), self._cleanup_tag(comments))
+				# if self.debug: print "\t\tAdding comments: ", comments
+				# commented_doc.add(Field("comment", self._cleanup_tag(comments), fieldTypes['comment']))
 
 				# write index
-				writer.addDocument(commented_doc)
+				writer.addDocument(doc)
 
-				del answered_doc
-				del commented_doc
+				# del answered_doc
+				# del commented_doc
 
+			if self.debug: print "Commiting document to index"
 			writer.commit()
 
 		# close index
+		if self.debug: print "Closing index write"
 		writer.close()
 		end = time.time() - start
 
+		print "-"*20
+		print "Total time spent in indexing: ", end, "seconds"
 
 
 	def _fetch_all_questions(self):
@@ -151,11 +164,11 @@ class StackOverflow_QA():
 						self.sqls['questions'],
 						'cursor_fetch_so_questions',)
 
-	def _fetch_all_answers(self, postid):
+	def _fetch_all_answers(self, postid, topic):
 		''' Fetches answers according to a postid'''
 
 		return self._make_cursor_execute_sql(
-						self.sqls['answers'].format(question_id=int(postid)),
+						self.sqls['answers'].format(question_id=int(postid), topic=topic),
 						'cursor_fetch_so_answers',)
 
 	def _fetch_all_comments(self, postid):
@@ -168,7 +181,7 @@ class StackOverflow_QA():
 	def _make_cursor_execute_sql(self, sql, cursor_name = "cursor_so"):
 		self._check_database_connection()
 
-		cur = self.connection.cursor(cursor_name, cursor_factory=psycopg2.extras.DictCursor)
+		cur = self.connection.cursor(cursor_name, cursor_factory=DictCursor)
 		cur.execute(sql)
 
 		response = cur.fetchall()
@@ -189,16 +202,16 @@ class StackOverflow_QA():
 		return self._make_reply_tree(comments)
 
 
-	def _tuples_to_dict(self, tuples):
+	def _tuples_to_dict(self, tuples, fields):
 		mapping = self._cols_to_fields
 		''' Maps columns to fields '''
 		a = []
-		if tuples is not None and len(tuples[0]) != len(mapping):
+		if tuples is not None and len(tuples[0]) != len(fields):
 			raise Exception('FATAL Error: Invalid mapping from columns to fields')
 		for t in tuples:
 			d = {}
-			for i in xrange(len(mapping)):
-				d[mapping[i]] = t[i]
+			for i in xrange(len(t)):
+				d[fields[i]] = t[i]
 			a.append(d)
 
 		return a
@@ -206,6 +219,12 @@ class StackOverflow_QA():
 
 	def _cleanup_tag(self, content):
 		''' cleanup and remove tags and other unwanted tokens from the content '''
+		if type(content) != type("a"):
+			if self.debug: print "\t\t\tSkipping cleaning of content '", content, "'"
+			return str(content)
+
+		if self.debug: print "\t\t\tCleaning up tag for ", content[:min(50, len(content))]
+
 		import re
 
 		blankie = " "

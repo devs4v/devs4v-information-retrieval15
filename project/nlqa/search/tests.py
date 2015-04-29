@@ -6,7 +6,7 @@ class RegexReplaceTestCase(TestCase):
 	def setUp(self):
 		self.conn_string = "host='localhost'  dbname='shivam' user='shivam' password='maxs'"
 		self.index_dir = os.path.join('.')
-		self.so_obj = so(self.conn_string, self.index_dir)
+		self.so_obj = so(self.conn_string, self.index_dir, False)
 
 	def test_replace_multiple_whitespaces(self):
 		in_text = "  "

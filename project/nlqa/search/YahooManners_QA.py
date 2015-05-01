@@ -1,12 +1,17 @@
-import sys, time, threading, psycopg2, copy, lucene
+import os, sys, time, threading, psycopg2, copy, lucene
 from psycopg2.extras import DictCursor
 
 from java.io import File
 from org.apache.lucene.analysis.standard import StandardAnalyzer
-from org.apache.lucene.document import Document, Field, FieldType
-from org.apache.lucene.index import FieldInfo, IndexWriter, IndexWriterConfig
 from org.apache.lucene.store import SimpleFSDirectory
 from org.apache.lucene.util import Version
+
+from org.apache.lucene.document import Document, Field, FieldType
+from org.apache.lucene.index import FieldInfo, IndexWriter, IndexWriterConfig
+
+from org.apache.lucene.index import DirectoryReader
+from org.apache.lucene.queryparser.classic import QueryParser, MultiFieldQueryParser
+from org.apache.lucene.search import IndexSearcher
 
 
 
@@ -46,7 +51,7 @@ class YahooManners_QA():
 				'all_question_ids' 	: """ SELECT uri FROM ym_posts ORDER BY uri """,
 				'questions' 		: """ SELECT uri, subject, content, maincat, subcat FROM ym_posts ORDER BY uri """,
 				'question_by_id' 	: """ SELECT uri, subject, content, maincat, subcat FROM ym_posts WHERE uri = {question_id} ORDER BY uri """,
-				'answers'			: """ SELECT uri, answer FROM ym_posts WHERE uri = {question_id} ORDER BY uri """,
+				'answers'			: """ SELECT uri, answer FROM ym_answers WHERE uri = {question_id} ORDER BY uri """,
 				# 'comments'			: """ SELECT id, text FROM so_comments WHERE postid = {post_id} """
 			}
 
@@ -252,3 +257,37 @@ class YahooManners_QA():
 		result = re.sub(no_too_many_spaces_regex, blankie, result)
 		result = result.lstrip().rstrip()
 		return result
+
+
+	# =============================== SEARCH FUNCTIONS ===========================
+	def search(self):
+		''' Searches the given query in the index '''
+
+		lucene.initVM(vmargs=['-Djava.awt.headless=true'])
+		# print 'lucene', lucene.VERSION
+		# base_dir = os.path.dirname(os.path.abspath('.'))
+		base_dir = '.'
+		directory = SimpleFSDirectory(File(os.path.join(base_dir, self.index_dir)))
+		searcher = IndexSearcher(DirectoryReader.open(directory))
+		analyzer = StandardAnalyzer(Version.LUCENE_CURRENT)
+		
+
+		while True:
+			print
+			print "Hit enter with no input to quit."
+			command = raw_input("Query:")
+			if command == '':
+				return
+
+			print
+			print "Searching for:", command
+
+			query = QueryParser(Version.LUCENE_CURRENT, "title",
+								analyzer).parse(command)
+			scoreDocs = searcher.search(query, 50).scoreDocs
+			print "%s total matching documents." % len(scoreDocs)
+
+			for scoreDoc in scoreDocs:
+				doc = searcher.doc(scoreDoc.doc)
+				# print 'path:', doc.get("path"), 'name:', doc.get("name")
+				print doc

@@ -7,7 +7,7 @@ import sys, os, lucene
 from java.io import File
 from org.apache.lucene.analysis.standard import StandardAnalyzer
 from org.apache.lucene.index import DirectoryReader
-from org.apache.lucene.queryparser.classic import QueryParser
+from org.apache.lucene.queryparser.classic import QueryParser, MultiFieldQueryParser
 from org.apache.lucene.store import SimpleFSDirectory
 from org.apache.lucene.search import IndexSearcher
 from org.apache.lucene.util import Version
@@ -31,7 +31,7 @@ def run(searcher, analyzer):
 
         print
         print "Searching for:", command
-        query = QueryParser(Version.LUCENE_CURRENT, "contents",
+        query = MultiFieldQueryParser(Version.LUCENE_CURRENT, "contents",
                             analyzer).parse(command)
         scoreDocs = searcher.search(query, 50).scoreDocs
         print "%s total matching documents." % len(scoreDocs)

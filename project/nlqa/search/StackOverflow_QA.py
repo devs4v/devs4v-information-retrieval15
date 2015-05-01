@@ -3,11 +3,15 @@ from psycopg2.extras import DictCursor
 
 from java.io import File
 from org.apache.lucene.analysis.standard import StandardAnalyzer
-from org.apache.lucene.document import Document, Field, FieldType
-from org.apache.lucene.index import FieldInfo, IndexWriter, IndexWriterConfig
 from org.apache.lucene.store import SimpleFSDirectory
 from org.apache.lucene.util import Version
 
+from org.apache.lucene.document import Document, Field, FieldType
+from org.apache.lucene.index import FieldInfo, IndexWriter, IndexWriterConfig
+
+from org.apache.lucene.index import DirectoryReader
+from org.apache.lucene.queryparser.classic import QueryParser
+from org.apache.lucene.search import IndexSearcher
 
 
 class StackOverflow_QA():

@@ -20,7 +20,7 @@ class StackOverflow_QA():
 
 	_posts_fields = ['id', 'title', 'question', 'tag', 'extra',]
 	_answer_fields = ['answer_id', 'answer']
-	_comment_fields = ['comment_id', 'comment']
+	# _comment_fields = ['comment_id', 'comment']
 	_cols_to_fields = {
 						'id'		: 'Id',
 						'title'		: 'Title',
@@ -31,11 +31,19 @@ class StackOverflow_QA():
 						'answer_id'	: 'Id',
 						'answer'	: 'Body',
 						
-						'comment_id': 'id',
-						'comment'	: 'text',
+						# 'comment_id': 'id',
+						# 'comment'	: 'text',
+	}
+	_fields_boost = {
+					'id'		: 1.0,
+					'title'		: 3.0,
+					'question'	: 2.0,
+					'tag'		: 1.0,
+					'extra'		: 1.0,
+					'answer'	: 1.0,
 	}
 
-	def __init__(self, conn_string=None, index_dir = None, debug=True):
+	def __init__(self, conn_string=None, index_dir = None, debug=False, verbose_values=False, status_mode=True):
 		'''Initializes members and checks connection string '''
 		self.connection_string = conn_string
 
@@ -50,11 +58,12 @@ class StackOverflow_QA():
 				'all_question_ids' 	: """ SELECT "Id" FROM so_posts ORDER BY "Id" """,
 				'questions' 		: """ SELECT "Id", "Title", "Body", "Tags", "Topic" FROM so_posts WHERE "ParentId" = -1 ORDER BY "Id", "Topic" """,
 				'question_by_id' 	: """ SELECT "Id", "Title", "Body", "Tags", "Topic" FROM so_posts WHERE "Id" = {question_id} ORDER BY "Id" """,
-				'answers'			: """ SELECT "Id", "Body" FROM so_posts WHERE "Id" = {question_id} ORDER BY "Id" """,
-				'comments'			: """ SELECT id, text FROM so_comments WHERE postid = {post_id} """
+				'answers'			: """ SELECT "Id", "Body" FROM so_posts WHERE "ParentId" = {question_id} AND "Topic" = '{topic_id}' ORDER BY "Id" """,
+				# 'comments'			: """ SELECT id, text FROM so_comments WHERE postid = {post_id} """
 			}
 		self.debug = debug
-		self.verbose_values = False
+		self.status_mode = status_mode
+		self.verbose_values = verbose_values
 		if self.debug:
 			for k in self.sqls.keys():
 				self.sqls[k] = self.sqls[k] + " LIMIT 10"
@@ -84,13 +93,13 @@ class StackOverflow_QA():
 			raise Exception("FATAL Error: Could not fetch posts from Database")
 
 		# open indexer
-		lucene.initVM(vmargs=['-Djava.awt.headless=true'])
-		print 'lucene', lucene.VERSION
+		# lucene.initVM(vmargs=['-Djava.awt.headless=true'])
+		# print 'lucene', lucene.VERSION
 
 		store = SimpleFSDirectory(File(self.index_dir))
 		analyzer = StandardAnalyzer(Version.LUCENE_CURRENT)
 		config = IndexWriterConfig(Version.LUCENE_CURRENT, analyzer)
-		config.setOpenMode(IndexWriterConfig.OpenMode.CREATE)
+		config.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND)
 		writer = IndexWriter(store, config)
 
 		indexedField = FieldType()
@@ -111,7 +120,7 @@ class StackOverflow_QA():
 						'title'		: indexedField,
 						'question'	: indexedField,
 						'answer'	: indexedField,
-						'comment'	: indexedField,
+						# 'comment'	: indexedField,
 						'tag'		: indexedField,
 						'extra'		: indexedField,
 		}
@@ -127,6 +136,7 @@ class StackOverflow_QA():
 			# add comment field
 			for answer in answers:
 				num_docs += 1
+				if self.status_mode: print "\r {0:.2f} %complete".format(((num_docs/18904.0)*100)),
 				if self.debug: print "+"*10, "\nMaking new Document"
 				doc = Document()
 				if self.debug: print "Adding doc type"
@@ -135,14 +145,18 @@ class StackOverflow_QA():
 				# make fields
 				if self.debug: print "Adding post fields"
 				for i in xrange(len(self._posts_fields)):
-					doc.add(Field(self._posts_fields[i], self._cleanup_tag(post[self._posts_fields[i]]), fieldTypes[self._posts_fields[i]]))
+					f = Field(self._posts_fields[i], self._cleanup_tag(post[self._posts_fields[i]]), fieldTypes[self._posts_fields[i]])
+					f.setBoost(self._fields_boost[self._posts_fields[i]])
+					doc.add(f)
 
 
 				if self.debug: print "\t Indexing answer: ", answer['answer_id']
 				if self.debug and self.verbose_values: print answer
 				# answered_doc = copy.deepcopy(doc)
 				# make comment field
-				doc.add(Field("answer", self._cleanup_tag(answer['answer']), fieldTypes['answer']))
+				f = Field("answer", self._cleanup_tag(answer['answer']), fieldTypes['answer'])
+				f.setBoost(self._fields_boost['answer'])
+				doc.add(f)
 
 				# calculate paths
 				# commented_doc = copy.deepcopy(answered_doc)
@@ -162,13 +176,13 @@ class StackOverflow_QA():
 			writer.commit()
 
 		# close index
-		if self.debug: print "Closing index write"
+		if self.status_mode: print "Closing index write"
 		writer.close()
 		end = time.time() - start
 
-		print "-"*20
-		print "Total time spent in indexing: ", end, "seconds"
-		print "Indexed {num_docs} documents".format(num_docs=num_docs)
+		if self.status_mode: print "-"*20, \
+				"Total time spent in indexing: ", end, "seconds", \
+				"Indexed {num_docs} documents".format(num_docs=num_docs)
 
 
 	def _fetch_all_questions(self):
@@ -182,7 +196,7 @@ class StackOverflow_QA():
 		''' Fetches answers according to a postid'''
 
 		return self._make_cursor_execute_sql(
-						self.sqls['answers'].format(question_id=int(postid), topic=topic),
+						self.sqls['answers'].format(question_id=int(postid), topic_id=topic),
 						'cursor_fetch_so_answers',)
 
 	def _fetch_all_comments(self, postid):
@@ -220,7 +234,7 @@ class StackOverflow_QA():
 		mapping = self._cols_to_fields
 		''' Maps columns to fields '''
 		a = []
-		if tuples is not None and len(tuples[0]) != len(fields):
+		if len(tuples) != 0 and len(tuples[0]) != len(fields):
 			raise Exception('FATAL Error: Invalid mapping from columns to fields')
 		for t in tuples:
 			d = {}

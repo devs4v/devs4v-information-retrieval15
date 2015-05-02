@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<body>
+	<h1>Natural Language Question/Answers with StackOverflow and Yahoo Manners</h1>
+	<h1>Input Query:</h1>
+	<form method="post" action="">
+		{% csrf_token %}
+		<input type="text" name="query" placeholder="query here" />
+		<input type="submit" value="Search" />
+	</form>
+
+	{% if method == 'result' %}
+		{% if method == 'result' %}
+			<h3>You searched for: {{ query }}</h3>
+			{% for result in results %}
+				<div>
+					<h3>Title: {{ result.title }}</h3>
+					<h4>From:
+					{% if result.type == "ym" %}
+						Yahoo! Answers
+					{% else %}
+						StackOverflow
+					{% endif %}
+					</h4>
+
+					{% if result.question and result.question.strip %}
+					{% else %}
+							<h4> Details:</h4><p>{{ result.question }}</p>
+					{% endif %}
+
+					<p>Answer:<br/> {{ result.answer }}</p>
+					<h6>Tags: {{ result.tag }}</h6>
+					<h6>Extra: {{ result.extra }}</h6>
+				</div>
+			{% endfor %}
+		{% else %}
+			<h2>No results obtained!</h2>
+		{% endif %}
+	{% endif %}
+</body>
+</html>

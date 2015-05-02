@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+
+<body>
+	<h1>Natural Language Question/Answers with StackOverflow and Yahoo Manners</h1>
+	<h1>Input Query:</h1>
+	<form method="post" action="">
+		{% csrf_token %}
+		<input type="text" name="query" placeholder="query here" />
+		<input type="submit" value="Search" />
+	</form>
+</body>
+</html>

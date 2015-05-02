@@ -35,8 +35,16 @@ class YahooManners_QA():
 						# 'comment_id': 'id',
 						# 'comment'	: 'text',
 	}
+	_fields_boost = {
+					'id'		: 1.0,
+					'title'		: 3.0,
+					'question'	: 2.0,
+					'tag'		: 1.0,
+					'extra'		: 1.0,
+					'answer'	: 1.0,
+	}
 
-	def __init__(self, conn_string=None, index_dir = None, debug=True):
+	def __init__(self, conn_string=None, index_dir = None, debug=False, verbose_values=False, status_mode=True):
 		'''Initializes members and checks connection string '''
 		self.connection_string = conn_string
 
@@ -58,7 +66,8 @@ class YahooManners_QA():
 		self.doctype = "ym"
 		
 		self.debug = debug
-		self.verbose_values = False
+		self.status_mode = status_mode
+		self.verbose_values = verbose_values
 		if self.debug:
 			for k in self.sqls.keys():
 				self.sqls[k] = self.sqls[k] + " LIMIT 10"
@@ -88,13 +97,13 @@ class YahooManners_QA():
 			raise Exception("FATAL Error: Could not fetch posts from Database")
 
 		# open indexer
-		lucene.initVM(vmargs=['-Djava.awt.headless=true'])
-		print 'lucene', lucene.VERSION
+		# lucene.initVM(vmargs=['-Djava.awt.headless=true'])
+		# print 'lucene', lucene.VERSION
 
 		store = SimpleFSDirectory(File(self.index_dir))
 		analyzer = StandardAnalyzer(Version.LUCENE_CURRENT)
 		config = IndexWriterConfig(Version.LUCENE_CURRENT, analyzer)
-		config.setOpenMode(IndexWriterConfig.OpenMode.CREATE)
+		config.setOpenMode(IndexWriterConfig.OpenMode.CREATE_OR_APPEND)
 		writer = IndexWriter(store, config)
 
 		indexedField = FieldType()
@@ -123,7 +132,8 @@ class YahooManners_QA():
 		# get their comments
 		num_docs = 0
 		for post in posts:
-			if self.debug : print "*"*20,"\nIndexing post: ", post['id'], "from ", post['extra']
+			if self.status_mode: print "\r {0:.2f} %complete".format(((num_docs/142627.0)*100)),
+			if self.debug : print "\n","*"*20,"\nIndexing post: ", post['id'], "from ", post['extra']
 			if self.debug and self.verbose_values: print post
 			answers = self._tuples_to_dict(self._fetch_all_answers(post['id'], post['extra']), self._answer_fields)
 
@@ -131,7 +141,7 @@ class YahooManners_QA():
 			# add comment field
 			for answer in answers:
 				num_docs += 1
-				if self.debug: print "+"*10, "\nMaking new Document"
+				if self.debug: print "\n","+"*10, "\nMaking new Document"
 				doc = Document()
 				if self.debug: print "Adding doc type"
 				doc.add(Field("type", self.doctype, fieldTypes['type']))
@@ -139,15 +149,18 @@ class YahooManners_QA():
 				# make fields
 				if self.debug: print "Adding post fields"
 				for i in xrange(len(self._posts_fields)):
-					doc.add(Field(self._posts_fields[i], self._cleanup_tag(post[self._posts_fields[i]]), fieldTypes[self._posts_fields[i]]))
+					f = Field(self._posts_fields[i], self._cleanup_tag(post[self._posts_fields[i]]), fieldTypes[self._posts_fields[i]])
+					f.setBoost(self._fields_boost[self._posts_fields[i]])
+					doc.add(f)
 
 
-				if self.debug: print "\t Indexing answer: ", answer['answer_id']
+				if self.status_mode: print "\t Indexing answer: ", answer['answer_id']
 				if self.debug and self.verbose_values: print answer
 				# answered_doc = copy.deepcopy(doc)
 				# make comment field
-				doc.add(Field("answer", self._cleanup_tag(answer['answer']), fieldTypes['answer']))
-
+				f = Field("answer", self._cleanup_tag(answer['answer']), fieldTypes['answer'])
+				f.setBoost(self._fields_boost['answer'])
+				doc.add(f)
 				# calculate paths
 				# commented_doc = copy.deepcopy(answered_doc)
 				# comments = self._comments_to_comment_string(self._tuples_to_dict(self._fetch_all_comments(answer['id']), self._comment_fields))
@@ -166,13 +179,13 @@ class YahooManners_QA():
 			writer.commit()
 
 		# close index
-		if self.debug: print "Closing index write"
+		if self.status_mode: print "Closing index write"
 		writer.close()
 		end = time.time() - start
 
-		print "-"*20
-		print "Total time spent in indexing: ", end, "seconds"
-		print "Indexed {num_docs} documents".format(num_docs=num_docs)
+		if self.status_mode: print "\n","-"*20, \
+			"\nTotal time spent in indexing: ", end, "seconds" \
+			"\nIndexed {num_docs} documents".format(num_docs=num_docs)
 
 
 	def _fetch_all_questions(self):
